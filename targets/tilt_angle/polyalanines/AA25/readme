@@ -1,0 +1,6 @@
+step 1:input fasta file 'AAAAAA' make_ideal_peptide.py to psi phi angle to ideal helix angles.AA20.pdb 
+step 2: CTERM_AMIDATION with amidation.xml AA20_0001.pdb
+step 3: NTERM_Methylation with methylation.xml AA20_0001_0001.pdb
+step 4: for tilt angle we rename AA20_0001_0001.pdd, relax and then rename as AA20.pdb
+
+  

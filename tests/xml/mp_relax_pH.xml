@@ -1,0 +1,23 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="%%sfxn_weights%%" />
+	</SCOREFXNS>
+    <TASKOPERATIONS>
+        <pHVariantTaskOperation name="pH_variant_task"/>
+    </TASKOPERATIONS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<PackRotamersMover name="pack_rotamers" scorefxn="memb_hires" task_operations="pH_variant_task"/>
+		<AtomCoordinateCstMover name="constrain_relax_to_start_coords" coord_dev="0.5" sidechain="false"/>
+		<FastRelax name="fast_relax" scorefxn="memb_hires" repeats="8"/> 
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="add_memb"/>
+		<Add mover="init_pos"/>
+        <Add mover_name="pack_rotamers"/>
+		<Add mover_name="constrain_relax_to_start_coords"/>
+		<Add mover_name="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires" />
+</ROSETTASCRIPTS>

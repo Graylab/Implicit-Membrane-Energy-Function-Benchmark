@@ -1,0 +1,25 @@
+-43.207	3dzm_ignorechain_0020
+-43.003	3dzm_ignorechain_0002
+-42.136	3dzm_ignorechain_0016
+-41.865	3dzm_ignorechain_0006
+-41.601	3dzm_ignorechain_0003
+-41.185	3dzm_ignorechain_0010
+-41.072	3dzm_ignorechain_0005
+-40.717	3dzm_ignorechain_0013
+-40.153	3dzm_ignorechain_0017
+-38.424	3dzm_ignorechain_0018
+-38.083	3dzm_ignorechain_0009
+-38.079	3dzm_ignorechain_0007
+-37.031	3dzm_ignorechain_0022
+-36.447	3dzm_ignorechain_0012
+-35.811	3dzm_ignorechain_0021
+-34.931	3dzm_ignorechain_0014
+-34.409	3dzm_ignorechain_0001
+-34.178	3dzm_ignorechain_0008
+-34.057	3dzm_ignorechain_0015
+-33.563	3dzm_ignorechain_0023
+-33.301	3dzm_ignorechain_0011
+-32.949	3dzm_ignorechain_0004
+-31.251	3dzm_ignorechain_0019
+total_score	description
+	

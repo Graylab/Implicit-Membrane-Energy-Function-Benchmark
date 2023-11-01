@@ -1,0 +1,7 @@
+
+real	0m0.000s
+user	0m0.000s
+sys	0m0.000s
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 3900959 ON c141 CANCELLED AT 2022-04-03T20:00:53 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 3900959.0 ON c141 CANCELLED AT 2022-04-03T20:00:53 DUE TO TIME LIMIT ***

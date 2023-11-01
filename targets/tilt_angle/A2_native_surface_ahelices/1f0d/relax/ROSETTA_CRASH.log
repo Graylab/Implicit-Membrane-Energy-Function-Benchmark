@@ -1,0 +1,46 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.40.post.dev+410.Rituparnasamanta.membranepHenergy.745c9e9e3c7
+[COMMIT_DATE]: 2022-06-14T16:16:47
+[APPLICATION]: UNKNOWN APPLICATION
+[MODE]: Release
+[EXTRAS]: default
+[OS]: GNU/Linux
+[COMPILER]: GCC version "8.3.1 20190507 (Red Hat 8.3.1-4)"
+[STDLIB]: libstdc++ version 20190507
+[START_OPTIONS]
+NO OPTIONS SPECIFIED
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(backtrace_string[abi:cxx11](int)+0x44) [0x155543edb004]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0xe4) [0x155543f0a1a4]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::options::OptionCollection::find_key_cl(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool)+0xa17) [0x155543fecc67]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::options::OptionCollection::load_option_cl(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::list<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x110) [0x155543fed0b0]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::options::OptionCollection::load(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::list<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, bool)+0x142) [0x155543ff0c82]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::options::OptionCollection::load(int, char* const*, bool)+0x180) [0x155543ff1670]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libcore.6.so(core::init::init_options(int, char**)+0x1f) [0x155549a88edf]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libcore.6.so(core::init::init(int, char**)+0x29) [0x155549a8cb79]
+/home/rsamant2/Softwares/Rosetta/main/source/bin/relax.linuxgccrelease() [0x401087]
+/lib64/libc.so.6(__libc_start_main+0xf3) [0x1555408fb873]
+/home/rsamant2/Softwares/Rosetta/main/source/bin/relax.linuxgccrelease() [0x4010fe]
+
+[END_BACKTRACE]
+
+[FILE]: src/utility/options/OptionCollection.cc
+[LINE]: 1467
+[START_MESSAGE]
+Option matching -constraint_relax_to_start_coords not found in command line top-level context
+Did you mean:
+	 -relax:constrain_relax_to_start_coords
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

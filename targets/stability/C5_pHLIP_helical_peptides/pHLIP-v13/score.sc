@@ -1,0 +1,3 @@
+SEQUENCE: 
+SCORE: total_score       score dslf_fa13    fa_atr    fa_dun   fa_elec fa_intra_rep fa_intra_sol_xover4              fa_rep              fa_sol hbond_bb_sc hbond_lr_bb    hbond_sc hbond_sr_bb linear_chainbreak lk_ball_wtd       omega overlap_chainbreak            p_aa_pp pro_close rama_prepro         ref        time yhh_planarity description 
+SCORE:       2.732       2.732     0.000  -103.090    30.531   -11.627        0.333               3.441              23.997              52.565      -0.605      -2.238      -3.409      -9.077             0.000      -4.183       2.159              0.000             -2.381     0.517      17.948       7.818       0.000         0.033 pHLIP-v13_abinitio_relax_0001

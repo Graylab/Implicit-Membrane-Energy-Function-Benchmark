@@ -1,0 +1,8 @@
+#!/bin/bash -l
+
+start=10258558
+stop=10259294 
+for ((j = $start; j <= $stop; j++)); do
+echo $j
+scancel $j
+done

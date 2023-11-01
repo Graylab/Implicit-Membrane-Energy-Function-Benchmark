@@ -1,0 +1,21 @@
+-197.720	1p4t_ignorechain_0008
+-196.208	1p4t_ignorechain_0013
+-191.006	1p4t_ignorechain_0003
+-190.111	1p4t_ignorechain_0010
+-189.239	1p4t_ignorechain_0001
+-187.059	1p4t_ignorechain_0015
+-186.863	1p4t_ignorechain_0006
+-185.224	1p4t_ignorechain_0016
+-184.791	1p4t_ignorechain_0009
+-184.741	1p4t_ignorechain_0011
+-184.694	1p4t_ignorechain_0014
+-184.350	1p4t_ignorechain_0004
+-184.198	1p4t_ignorechain_0019
+-184.155	1p4t_ignorechain_0005
+-184.028	1p4t_ignorechain_0002
+-183.764	1p4t_ignorechain_0012
+-183.682	1p4t_ignorechain_0007
+-183.043	1p4t_ignorechain_0018
+-182.727	1p4t_ignorechain_0017
+total_score	description
+	

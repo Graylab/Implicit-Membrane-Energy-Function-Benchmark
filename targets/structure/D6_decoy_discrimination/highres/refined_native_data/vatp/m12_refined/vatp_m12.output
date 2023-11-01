@@ -1,0 +1,1899 @@
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: 2019.14.post.dev+649.rfalford12.implicitlipidmembrane.811831f 811831f2ca1befa9488e3e94649e4a514052e689 git@github.com:RosettaCommons/main.git 2019-04-12T09:38:27
+core.init: command: condor_exec.exe -packing:pack_missing_sidechains 0 -run:multiple_processes_writing_to_one_directory -in:file:s ../vatp_native_0001.pdb -parser:protocol ../../../../../xml/test_3.3_decoy_refinement.xml -constrain_relax_to_start_coords -parser:script_vars sfxn_weights=mpframework_smooth_fa_2012 -restore_talaris_behavior -restore_lazaridis_imm_behavior -mp:setup:spanfiles ../vatp.span -out:file:scorefile M12_vatp_refined_native.sc -nstruct 5
+core.init: 'RNG device' seed mode, using '/dev/urandom', seed=168814155 seed_offset=0 real_seed=168814155
+core.init.random: RandomGenerator:init: Normal mode, seed=168814155 RG_type=mt19937
+core.init: Resolved executable path: /home/ralford/apps/Rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccrelease
+core.init: Looking for database based on location of executable: /home/ralford/apps/Rosetta/main/database/
+protocols.jd2.PDBJobInputter: Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: pushed ../vatp_native_0001.pdb nstruct indices 1 - 5
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from PDB ../vatp_native_0001.pdb
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 544 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.61 seconds.
+core.import_pose.import_pose: File '../vatp_native_0001.pdb' automatically determined to be of type PDB
+protocols.rosetta_scripts.RosettaScriptsParser: dock_design_filename=../../../../../xml/test_3.3_decoy_refinement.xml
+protocols.rosetta_scripts.RosettaScriptsParser: Variable substitution will occur with the following values: '%%sfxn_weights%%'='mpframework_smooth_fa_2012';  
+protocols.rosetta_scripts.RosettaScriptsParser: Substituted script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012" />
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" scorefxn="memb_hires" repeats="8"/> 
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires" />
+</ROSETTASCRIPTS>
+protocols.rosetta_scripts.RosettaScriptsParser: Generating XML Schema for rosetta_scripts...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Initializing schema validator...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Validating input script...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Parsed script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012"/>
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" repeats="8" scorefxn="memb_hires"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires"/>
+</ROSETTASCRIPTS>
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: talaris2014.wts
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/rama/Rama_smooth_dyn.dat_ss_6.4
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_pp
+core.scoring.etable: Using alternate parameters: LJ_RADIUS_SOFT in Etable construction.
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/PairEPotential/pdb_pair_stats_fine
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cbeta_den.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cenpack_log.txt
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+core.scoring.etable: Using alternate parameters: LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Starting membrane specific energy table calculation
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating membrane specific energy tables.
+basic.io.database: Database file opened: scoring/score_functions/MembranePotential/CEN10_Menv_smooth_log.txt
+protocols.jd2.parser.ScoreFunctionLoader: defined score function "memb_hires" with weights "mpframework_smooth_fa_2012"
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "add_memb" of type AddMembraneMover
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "init_pos" of type MembranePositionFromTopologyMover
+protocols.relax.FastRelax: Looking for default.txt
+protocols.relax.RelaxScriptManager: ================== Reading script file: /home/ralford/apps/Rosetta/main/database/sampling/relax_scripts/default.txt ==================
+protocols.relax.RelaxScriptManager: repeat %%nrepeats%%
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.02  0.01     1.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.250 0.01     0.5
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.550 0.01     0.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 1     0.00001  0.0
+protocols.relax.RelaxScriptManager: accept_to_best
+protocols.relax.RelaxScriptManager: endrepeat
+protocols.relax.FastRelax: Looking for default.txt
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "fast_relax" of type FastRelax
+protocols.rosetta_scripts.ParsedProtocol: ParsedProtocol mover with the following movers and filters
+protocols.rosetta_scripts.ParsedProtocol: added mover "add_memb" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "init_pos" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "fast_relax" with filter "true_filter"
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from saved copy ../vatp_native_0001.pdb
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER AddMembraneMover - add_memb=======================
+protocols.membrane.AddMembraneMover: Found membrane residue 146 in PDB.
+protocols.membrane.AddMembraneMover: No flag given: Adding membrane residue from PDB at residue number 146
+core.conformation.membrane.SpanningTopology: Filling membrane spanning topology from spanfile ../vatp.span
+core.conformation.membrane.SpanningTopology: nres: 146
+core.conformation.membrane.SpanningTopology: nres_topo: 145
+core.conformation.membrane.SpanningTopology: total residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Pose is in pose numbering scheme.
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.membrane.AddMembraneMover: Setting initial membrane center and normal to position used by the user-provided membrane residue
+protocols.membrane.util: chain 1 1
+protocols.membrane.util: chainid 1 chain A
+protocols.membrane.util: com (0.972295, -0.191466, -0.589372)
+protocols.membrane.util:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+core.conformation.membrane.MembraneInfo: Setting a new membrane jump number in MembraneInfo to 1.
+core.conformation.membrane.MembraneInfo: Use with caution!
+protocols.membrane.SetMembranePositionMover: Calling SetMembranePositionMover
+protocols.membrane.SetMembranePositionMover: Starting foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.SetMembranePositionMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.AddMembraneMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: MembraneInfo: Information about this Membrane Protein
+protocols.membrane.AddMembraneMover: Membrane Residue Num: 146
+protocols.membrane.AddMembraneMover: Membrane Fold Tree Jump: 1
+protocols.membrane.AddMembraneMover: Membrane Thickness: 15
+protocols.membrane.AddMembraneMover: Membrane Steepness: 10
+protocols.membrane.AddMembraneMover: Membrane Spanning Topology 
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER MembranePositionFromTopologyMover - init_pos=======================
+protocols.membrane.MembranePositionMoverFromTopologyMover: Reordering foldtree:
+protocols.membrane.MembranePositionMoverFromTopologyMover: Starting foldtree: Is membrane fixed? 0
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0001--0146  001
+0001--0145
+
+protocols.membrane.MembranePositionMoverFromTopologyMover: Computing initial membrane position from structure...
+protocols.membrane.geometry.Embedding: Constructing Embedding object from topology and pose
+protocols.membrane.geometry.Embedding: Computing membrane embedding from TMspans: 
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 47 to 67
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 77 to 97
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 123 to 143
+protocols.membrane.geometry.Embedding: Span Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-1.7815, -7.1375, -1.8965), normal: (-0.0192865, 0.167624, 0.985662)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-6.0205, 3.829, 2.179), normal: (0.0510456, -0.0192981, 0.99851)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.823, -3.5375, -3.588), normal: (-0.0860175, -0.117865, 0.989297)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.979, 6.8455, 3.305), normal: (0.0542994, -0.0304509, 0.99806)
+protocols.membrane.geometry.Embedding: Total Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (1.11022e-16, -0.000125, -0.000125), normal: (1.03446e-05, 2.44815e-06, 1)
+protocols.membrane.MembranePositionMoverFromTopologyMover: Final foldtree after reset: Is membrane fixed? 1
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER FastRelax - fast_relax=======================
+core.pack.dunbrack.RotamerLibrary: Using Dunbrack library binary file '/home/ralford/apps/Rosetta/main/database/rotamer/ExtendedOpt1-5/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: Dunbrack 2010 library took 0.16 seconds to load from binary
+protocols.relax.FastRelax: CMD: repeat  -292.041  0  0  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1755 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -498.183  0.112701  0.112701  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1553 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -480.887  0.139232  0.139232  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1472 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -488.133  0.698676  0.698676  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1365 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -457.57  0.617322  0.617322  0.44
+protocols.relax.FastRelax: MRP: 0  -457.57  -457.57  0.617322  0.617322  
+protocols.relax.FastRelax: CMD: accept_to_best  -457.57  0.617322  0.617322  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -457.57  0.617322  0.617322  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1728 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -497.339  0.124206  0.124206  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1539 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -479.881  0.144187  0.144187  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1481 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -491.644  0.705931  0.705931  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1402 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -459.308  0.589309  0.589309  0.44
+protocols.relax.FastRelax: MRP: 1  -459.308  -459.308  0.589309  0.589309  
+protocols.relax.FastRelax: CMD: accept_to_best  -459.308  0.589309  0.589309  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -459.308  0.589309  0.589309  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1735 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -498  0.129717  0.129717  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1568 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -476.637  0.14993  0.14993  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1503 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -483.979  0.639173  0.639173  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1399 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -453.836  0.559391  0.559391  0.44
+protocols.relax.FastRelax: MRP: 2  -453.836  -459.308  0.589309  0.589309  
+protocols.relax.FastRelax: CMD: accept_to_best  -453.836  0.559391  0.559391  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -453.836  0.559391  0.559391  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1693 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 5.96046e-08 Deriv= -16.1108 Finite Diff= 11.0582
+protocols.relax.FastRelax: CMD: ramp_repack_min  -491.36  0.136493  0.136493  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1555 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -479.498  0.14668  0.14668  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1485 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -487.497  0.712802  0.712802  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1388 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-06 Deriv= -0.975508 Finite Diff= -0.0382653
+protocols.relax.FastRelax: CMD: ramp_repack_min  -453.992  0.629491  0.629491  0.44
+protocols.relax.FastRelax: MRP: 3  -453.992  -459.308  0.589309  0.589309  
+protocols.relax.FastRelax: CMD: accept_to_best  -453.992  0.629491  0.629491  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -453.992  0.629491  0.629491  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1697 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  96.5137  0.51427  0.51427  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1464 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -114.791  0.559205  0.559205  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1448 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.45058e-09 Deriv= -38.5398 Finite Diff= 6.08617e+08
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 4.03729e-07 Deriv= -357.108 Finite Diff= 1.12313e+07
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#70
+protocols.relax.FastRelax: CMD: ramp_repack_min  -318.271  2.03389  2.03389  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1387 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.53674e-09 Deriv= -17722.6 Finite Diff= 4.75412e+08
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 5.73095e-08 Deriv= -17722.6 Finite Diff= 7.90977e+07
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#5
+protocols.relax.FastRelax: CMD: ramp_repack_min  -241.446  2.03389  2.03389  0.44
+protocols.relax.FastRelax: MRP: 4  -241.446  -459.308  0.589309  0.589309  
+protocols.relax.FastRelax: CMD: accept_to_best  -241.446  2.03389  2.03389  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -241.446  2.03389  2.03389  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1706 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -83.067  0.437931  0.437931  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1525 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -127.312  0.541556  0.541556  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1402 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -357.685  1.9982  1.9982  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1381 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -329.697  2.22662  2.22662  0.44
+protocols.relax.FastRelax: MRP: 5  -329.697  -459.308  0.589309  0.589309  
+protocols.relax.FastRelax: CMD: accept_to_best  -329.697  2.22662  2.22662  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -329.697  2.22662  2.22662  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1649 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  -112.221  0.420854  0.420854  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1493 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.72529e-09 Deriv= -3.94566 Finite Diff= 1.34293
+protocols.relax.FastRelax: CMD: ramp_repack_min  -198.086  0.440224  0.440224  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1369 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -331.746  1.10841  1.10841  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1304 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -293.029  1.381  1.381  0.44
+protocols.relax.FastRelax: MRP: 6  -293.029  -459.308  0.589309  0.589309  
+protocols.relax.FastRelax: CMD: accept_to_best  -293.029  1.381  1.381  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -293.029  1.381  1.381  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1649 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.49012e-08 Deriv= -17.531 Finite Diff= 3.96502
+protocols.relax.FastRelax: CMD: ramp_repack_min  -218.578  0.358268  0.358268  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1455 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -257.563  0.373653  0.373653  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1437 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-06 Deriv= -4.55312 Finite Diff= 0.0361603
+protocols.relax.FastRelax: CMD: ramp_repack_min  -341.672  1.17214  1.17214  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1396 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.19209e-07 Deriv= -7.3421 Finite Diff= -0.338494
+protocols.relax.FastRelax: CMD: ramp_repack_min  -299.455  1.27358  1.27358  0.44
+protocols.relax.FastRelax: MRP: 7  -299.455  -459.308  0.589309  0.589309  
+protocols.relax.FastRelax: CMD: accept_to_best  -299.455  1.27358  1.27358  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -299.455  1.27358  1.27358  0.44
+protocols::checkpoint: Deleting checkpoints of FastRelax
+protocols.rosetta_scripts.ParsedProtocol: setting status to success
+protocols.jd2.JobDistributor: vatp_native_0001_0003 reported success in 420 seconds
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 5 jobs considered, 1 jobs attempted in 421 seconds
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: 2019.14.post.dev+649.rfalford12.implicitlipidmembrane.811831f 811831f2ca1befa9488e3e94649e4a514052e689 git@github.com:RosettaCommons/main.git 2019-04-12T09:38:27
+core.init: command: condor_exec.exe -packing:pack_missing_sidechains 0 -run:multiple_processes_writing_to_one_directory -in:file:s ../vatp_native_0001.pdb -parser:protocol ../../../../../xml/test_3.3_decoy_refinement.xml -constrain_relax_to_start_coords -parser:script_vars sfxn_weights=mpframework_smooth_fa_2012 -restore_talaris_behavior -restore_lazaridis_imm_behavior -mp:setup:spanfiles ../vatp.span -out:file:scorefile M12_vatp_refined_native.sc -nstruct 5
+core.init: 'RNG device' seed mode, using '/dev/urandom', seed=1841220784 seed_offset=0 real_seed=1841220784
+core.init.random: RandomGenerator:init: Normal mode, seed=1841220784 RG_type=mt19937
+core.init: Resolved executable path: /home/ralford/apps/Rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccrelease
+core.init: Looking for database based on location of executable: /home/ralford/apps/Rosetta/main/database/
+protocols.jd2.PDBJobInputter: Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: pushed ../vatp_native_0001.pdb nstruct indices 1 - 5
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from PDB ../vatp_native_0001.pdb
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 544 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.58 seconds.
+core.import_pose.import_pose: File '../vatp_native_0001.pdb' automatically determined to be of type PDB
+protocols.rosetta_scripts.RosettaScriptsParser: dock_design_filename=../../../../../xml/test_3.3_decoy_refinement.xml
+protocols.rosetta_scripts.RosettaScriptsParser: Variable substitution will occur with the following values: '%%sfxn_weights%%'='mpframework_smooth_fa_2012';  
+protocols.rosetta_scripts.RosettaScriptsParser: Substituted script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012" />
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" scorefxn="memb_hires" repeats="8"/> 
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires" />
+</ROSETTASCRIPTS>
+protocols.rosetta_scripts.RosettaScriptsParser: Generating XML Schema for rosetta_scripts...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Initializing schema validator...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Validating input script...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Parsed script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012"/>
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" repeats="8" scorefxn="memb_hires"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires"/>
+</ROSETTASCRIPTS>
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: talaris2014.wts
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/rama/Rama_smooth_dyn.dat_ss_6.4
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_pp
+core.scoring.etable: Using alternate parameters: LJ_RADIUS_SOFT in Etable construction.
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/PairEPotential/pdb_pair_stats_fine
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cbeta_den.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cenpack_log.txt
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+core.scoring.etable: Using alternate parameters: LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Starting membrane specific energy table calculation
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating membrane specific energy tables.
+basic.io.database: Database file opened: scoring/score_functions/MembranePotential/CEN10_Menv_smooth_log.txt
+protocols.jd2.parser.ScoreFunctionLoader: defined score function "memb_hires" with weights "mpframework_smooth_fa_2012"
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "add_memb" of type AddMembraneMover
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "init_pos" of type MembranePositionFromTopologyMover
+protocols.relax.FastRelax: Looking for default.txt
+protocols.relax.RelaxScriptManager: ================== Reading script file: /home/ralford/apps/Rosetta/main/database/sampling/relax_scripts/default.txt ==================
+protocols.relax.RelaxScriptManager: repeat %%nrepeats%%
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.02  0.01     1.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.250 0.01     0.5
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.550 0.01     0.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 1     0.00001  0.0
+protocols.relax.RelaxScriptManager: accept_to_best
+protocols.relax.RelaxScriptManager: endrepeat
+protocols.relax.FastRelax: Looking for default.txt
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "fast_relax" of type FastRelax
+protocols.rosetta_scripts.ParsedProtocol: ParsedProtocol mover with the following movers and filters
+protocols.rosetta_scripts.ParsedProtocol: added mover "add_memb" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "init_pos" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "fast_relax" with filter "true_filter"
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from saved copy ../vatp_native_0001.pdb
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER AddMembraneMover - add_memb=======================
+protocols.membrane.AddMembraneMover: Found membrane residue 146 in PDB.
+protocols.membrane.AddMembraneMover: No flag given: Adding membrane residue from PDB at residue number 146
+core.conformation.membrane.SpanningTopology: Filling membrane spanning topology from spanfile ../vatp.span
+core.conformation.membrane.SpanningTopology: nres: 146
+core.conformation.membrane.SpanningTopology: nres_topo: 145
+core.conformation.membrane.SpanningTopology: total residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Pose is in pose numbering scheme.
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.membrane.AddMembraneMover: Setting initial membrane center and normal to position used by the user-provided membrane residue
+protocols.membrane.util: chain 1 1
+protocols.membrane.util: chainid 1 chain A
+protocols.membrane.util: com (0.972295, -0.191466, -0.589372)
+protocols.membrane.util:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+core.conformation.membrane.MembraneInfo: Setting a new membrane jump number in MembraneInfo to 1.
+core.conformation.membrane.MembraneInfo: Use with caution!
+protocols.membrane.SetMembranePositionMover: Calling SetMembranePositionMover
+protocols.membrane.SetMembranePositionMover: Starting foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.SetMembranePositionMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.AddMembraneMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: MembraneInfo: Information about this Membrane Protein
+protocols.membrane.AddMembraneMover: Membrane Residue Num: 146
+protocols.membrane.AddMembraneMover: Membrane Fold Tree Jump: 1
+protocols.membrane.AddMembraneMover: Membrane Thickness: 15
+protocols.membrane.AddMembraneMover: Membrane Steepness: 10
+protocols.membrane.AddMembraneMover: Membrane Spanning Topology 
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER MembranePositionFromTopologyMover - init_pos=======================
+protocols.membrane.MembranePositionMoverFromTopologyMover: Reordering foldtree:
+protocols.membrane.MembranePositionMoverFromTopologyMover: Starting foldtree: Is membrane fixed? 0
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0001--0146  001
+0001--0145
+
+protocols.membrane.MembranePositionMoverFromTopologyMover: Computing initial membrane position from structure...
+protocols.membrane.geometry.Embedding: Constructing Embedding object from topology and pose
+protocols.membrane.geometry.Embedding: Computing membrane embedding from TMspans: 
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 47 to 67
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 77 to 97
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 123 to 143
+protocols.membrane.geometry.Embedding: Span Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-1.7815, -7.1375, -1.8965), normal: (-0.0192865, 0.167624, 0.985662)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-6.0205, 3.829, 2.179), normal: (0.0510456, -0.0192981, 0.99851)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.823, -3.5375, -3.588), normal: (-0.0860175, -0.117865, 0.989297)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.979, 6.8455, 3.305), normal: (0.0542994, -0.0304509, 0.99806)
+protocols.membrane.geometry.Embedding: Total Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (1.11022e-16, -0.000125, -0.000125), normal: (1.03446e-05, 2.44815e-06, 1)
+protocols.membrane.MembranePositionMoverFromTopologyMover: Final foldtree after reset: Is membrane fixed? 1
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER FastRelax - fast_relax=======================
+core.pack.dunbrack.RotamerLibrary: Using Dunbrack library binary file '/home/ralford/apps/Rosetta/main/database/rotamer/ExtendedOpt1-5/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: Dunbrack 2010 library took 0.16 seconds to load from binary
+protocols.relax.FastRelax: CMD: repeat  -292.041  0  0  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1755 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -498.877  0.113877  0.113877  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1555 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -470.073  0.139034  0.139034  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1475 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -485.701  0.717857  0.717857  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1366 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -458.519  0.754922  0.754922  0.44
+protocols.relax.FastRelax: MRP: 0  -458.519  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  -458.519  0.754922  0.754922  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -458.519  0.754922  0.754922  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1709 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.53674e-09 Deriv= -31347.4 Finite Diff= 3.8079e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.68412e-09 Deriv= -25182.3 Finite Diff= 9.8567e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.98635e-08 Deriv= -65267.9 Finite Diff= 1.21591e+09
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#534
+protocols.relax.FastRelax: CMD: ramp_repack_min  4019.35  1.71925  1.71925  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1239 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.72529e-09 Deriv= -248.272 Finite Diff= 1.78074e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 5.7062e-09 Deriv= -86.5379 Finite Diff= 1.16254e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 6.54598e-09 Deriv= -33.911 Finite Diff= 1.03002e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.68599e-07 Deriv= -98.5328 Finite Diff= 8.77238e+06
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#889
+protocols.relax.FastRelax: CMD: ramp_repack_min  1671  1.70044  1.70044  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1274 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  926.956  3.03092  3.03092  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1233 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -32.0489  3.3342  3.3342  0.44
+protocols.relax.FastRelax: MRP: 1  -32.0489  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  -32.0489  3.3342  3.3342  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -32.0489  3.3342  3.3342  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1664 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  815.435  0.763051  0.763051  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1412 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  509.178  0.931958  0.931958  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1403 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -67.3023  2.58095  2.58095  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1337 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 4.76837e-07 Deriv= -0.812735 Finite Diff= -0.0734068
+protocols.relax.FastRelax: CMD: ramp_repack_min  -91.0594  2.63885  2.63885  0.44
+protocols.relax.FastRelax: MRP: 2  -91.0594  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  -91.0594  2.63885  2.63885  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -91.0594  2.63885  2.63885  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1708 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  1316.4  0.934038  0.934038  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1299 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.72529e-09 Deriv= -105.785 Finite Diff= 1.53535e+10
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 6.13109e-09 Deriv= -128.299 Finite Diff= 9.34237e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.30008e-07 Deriv= -1100.25 Finite Diff= 2.49028e+08
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#125
+protocols.relax.FastRelax: CMD: ramp_repack_min  999.409  1.09762  1.09762  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1240 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-08 Deriv= -172393 Finite Diff= 1.50136e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.83751e-08 Deriv= -172393 Finite Diff= 3.11703e+09
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#1
+protocols.relax.FastRelax: CMD: ramp_repack_min  658.416  1.09762  1.09762  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1191 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-08 Deriv= -681856 Finite Diff= 1.50085e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.2394e-09 Deriv= -681856 Finite Diff= 6.19874e+09
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#1
+protocols.relax.FastRelax: CMD: ramp_repack_min  1183.77  1.09762  1.09762  0.44
+protocols.relax.FastRelax: MRP: 3  1183.77  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  1183.77  1.09762  1.09762  0.44
+protocols.relax.FastRelax: CMD: endrepeat  1183.77  1.09762  1.09762  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1608 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 5.96046e-08 Deriv= -23.2715 Finite Diff= 0.0560684
+protocols.relax.FastRelax: CMD: ramp_repack_min  727.501  0.810006  0.810006  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1251 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  680.113  0.961885  0.961885  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1217 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  6.06029  3.27746  3.27746  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1181 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.45058e-09 Deriv= -16.6465 Finite Diff= 0.0308609
+protocols.relax.FastRelax: CMD: ramp_repack_min  -3.59261  3.85764  3.85764  0.44
+protocols.relax.FastRelax: MRP: 4  -3.59261  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  -3.59261  3.85764  3.85764  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -3.59261  3.85764  3.85764  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1626 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  650.87  0.741701  0.741701  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1354 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  549.751  0.858428  0.858428  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1222 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  91.3213  3.83288  3.83288  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1249 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.32831e-10 Deriv= -24.6791 Finite Diff= -0.37207
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.38419e-07 Deriv= -4.3524 Finite Diff= -0.124264
+protocols.relax.FastRelax: CMD: ramp_repack_min  -21.1728  4.59323  4.59323  0.44
+protocols.relax.FastRelax: MRP: 5  -21.1728  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  -21.1728  4.59323  4.59323  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -21.1728  4.59323  4.59323  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1561 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  605.232  0.71852  0.71852  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1406 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  508.326  0.799683  0.799683  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1342 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -40.0964  2.65344  2.65344  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1326 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.53674e-07 Deriv= -5.71252 Finite Diff= -0.21298
+protocols.relax.FastRelax: CMD: ramp_repack_min  -6.89956  2.87055  2.87055  0.44
+protocols.relax.FastRelax: MRP: 6  -6.89956  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  -6.89956  2.87055  2.87055  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -6.89956  2.87055  2.87055  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1630 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 5.96046e-08 Deriv= -262.3 Finite Diff= 10.5088
+protocols.relax.FastRelax: CMD: ramp_repack_min  616.714  0.749144  0.749144  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1392 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  494.908  0.871933  0.871933  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1272 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.38419e-07 Deriv= -31.9809 Finite Diff= -2.15627
+protocols.relax.FastRelax: CMD: ramp_repack_min  138.104  3.11401  3.11401  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1276 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-06 Deriv= -8.87131 Finite Diff= -0.0470037
+protocols.relax.FastRelax: CMD: ramp_repack_min  -14.0997  4.00147  4.00147  0.44
+protocols.relax.FastRelax: MRP: 7  -14.0997  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  -14.0997  4.00147  4.00147  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -14.0997  4.00147  4.00147  0.44
+protocols::checkpoint: Deleting checkpoints of FastRelax
+protocols.rosetta_scripts.ParsedProtocol: setting status to success
+protocols.jd2.JobDistributor: vatp_native_0001_0005 reported success in 645 seconds
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 5 jobs considered, 1 jobs attempted in 645 seconds
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: 2019.14.post.dev+649.rfalford12.implicitlipidmembrane.811831f 811831f2ca1befa9488e3e94649e4a514052e689 git@github.com:RosettaCommons/main.git 2019-04-12T09:38:27
+core.init: command: condor_exec.exe -packing:pack_missing_sidechains 0 -run:multiple_processes_writing_to_one_directory -in:file:s ../vatp_native_0001.pdb -parser:protocol ../../../../../xml/test_3.3_decoy_refinement.xml -constrain_relax_to_start_coords -parser:script_vars sfxn_weights=mpframework_smooth_fa_2012 -restore_talaris_behavior -restore_lazaridis_imm_behavior -mp:setup:spanfiles ../vatp.span -out:file:scorefile M12_vatp_refined_native.sc -nstruct 5
+core.init: 'RNG device' seed mode, using '/dev/urandom', seed=-1801994292 seed_offset=0 real_seed=-1801994292
+core.init.random: RandomGenerator:init: Normal mode, seed=-1801994292 RG_type=mt19937
+core.init: Resolved executable path: /home/ralford/apps/Rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccrelease
+core.init: Looking for database based on location of executable: /home/ralford/apps/Rosetta/main/database/
+protocols.jd2.PDBJobInputter: Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: pushed ../vatp_native_0001.pdb nstruct indices 1 - 5
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from PDB ../vatp_native_0001.pdb
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 544 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.58 seconds.
+core.import_pose.import_pose: File '../vatp_native_0001.pdb' automatically determined to be of type PDB
+protocols.rosetta_scripts.RosettaScriptsParser: dock_design_filename=../../../../../xml/test_3.3_decoy_refinement.xml
+protocols.rosetta_scripts.RosettaScriptsParser: Variable substitution will occur with the following values: '%%sfxn_weights%%'='mpframework_smooth_fa_2012';  
+protocols.rosetta_scripts.RosettaScriptsParser: Substituted script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012" />
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" scorefxn="memb_hires" repeats="8"/> 
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires" />
+</ROSETTASCRIPTS>
+protocols.rosetta_scripts.RosettaScriptsParser: Generating XML Schema for rosetta_scripts...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Initializing schema validator...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Validating input script...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Parsed script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012"/>
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" repeats="8" scorefxn="memb_hires"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires"/>
+</ROSETTASCRIPTS>
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: talaris2014.wts
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/rama/Rama_smooth_dyn.dat_ss_6.4
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_pp
+core.scoring.etable: Using alternate parameters: LJ_RADIUS_SOFT in Etable construction.
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/PairEPotential/pdb_pair_stats_fine
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cbeta_den.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cenpack_log.txt
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+core.scoring.etable: Using alternate parameters: LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Starting membrane specific energy table calculation
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating membrane specific energy tables.
+basic.io.database: Database file opened: scoring/score_functions/MembranePotential/CEN10_Menv_smooth_log.txt
+protocols.jd2.parser.ScoreFunctionLoader: defined score function "memb_hires" with weights "mpframework_smooth_fa_2012"
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "add_memb" of type AddMembraneMover
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "init_pos" of type MembranePositionFromTopologyMover
+protocols.relax.FastRelax: Looking for default.txt
+protocols.relax.RelaxScriptManager: ================== Reading script file: /home/ralford/apps/Rosetta/main/database/sampling/relax_scripts/default.txt ==================
+protocols.relax.RelaxScriptManager: repeat %%nrepeats%%
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.02  0.01     1.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.250 0.01     0.5
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.550 0.01     0.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 1     0.00001  0.0
+protocols.relax.RelaxScriptManager: accept_to_best
+protocols.relax.RelaxScriptManager: endrepeat
+protocols.relax.FastRelax: Looking for default.txt
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "fast_relax" of type FastRelax
+protocols.rosetta_scripts.ParsedProtocol: ParsedProtocol mover with the following movers and filters
+protocols.rosetta_scripts.ParsedProtocol: added mover "add_memb" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "init_pos" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "fast_relax" with filter "true_filter"
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from saved copy ../vatp_native_0001.pdb
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER AddMembraneMover - add_memb=======================
+protocols.membrane.AddMembraneMover: Found membrane residue 146 in PDB.
+protocols.membrane.AddMembraneMover: No flag given: Adding membrane residue from PDB at residue number 146
+core.conformation.membrane.SpanningTopology: Filling membrane spanning topology from spanfile ../vatp.span
+core.conformation.membrane.SpanningTopology: nres: 146
+core.conformation.membrane.SpanningTopology: nres_topo: 145
+core.conformation.membrane.SpanningTopology: total residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Pose is in pose numbering scheme.
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.membrane.AddMembraneMover: Setting initial membrane center and normal to position used by the user-provided membrane residue
+protocols.membrane.util: chain 1 1
+protocols.membrane.util: chainid 1 chain A
+protocols.membrane.util: com (0.972295, -0.191466, -0.589372)
+protocols.membrane.util:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+core.conformation.membrane.MembraneInfo: Setting a new membrane jump number in MembraneInfo to 1.
+core.conformation.membrane.MembraneInfo: Use with caution!
+protocols.membrane.SetMembranePositionMover: Calling SetMembranePositionMover
+protocols.membrane.SetMembranePositionMover: Starting foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.SetMembranePositionMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.AddMembraneMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: MembraneInfo: Information about this Membrane Protein
+protocols.membrane.AddMembraneMover: Membrane Residue Num: 146
+protocols.membrane.AddMembraneMover: Membrane Fold Tree Jump: 1
+protocols.membrane.AddMembraneMover: Membrane Thickness: 15
+protocols.membrane.AddMembraneMover: Membrane Steepness: 10
+protocols.membrane.AddMembraneMover: Membrane Spanning Topology 
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER MembranePositionFromTopologyMover - init_pos=======================
+protocols.membrane.MembranePositionMoverFromTopologyMover: Reordering foldtree:
+protocols.membrane.MembranePositionMoverFromTopologyMover: Starting foldtree: Is membrane fixed? 0
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0001--0146  001
+0001--0145
+
+protocols.membrane.MembranePositionMoverFromTopologyMover: Computing initial membrane position from structure...
+protocols.membrane.geometry.Embedding: Constructing Embedding object from topology and pose
+protocols.membrane.geometry.Embedding: Computing membrane embedding from TMspans: 
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 47 to 67
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 77 to 97
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 123 to 143
+protocols.membrane.geometry.Embedding: Span Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-1.7815, -7.1375, -1.8965), normal: (-0.0192865, 0.167624, 0.985662)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-6.0205, 3.829, 2.179), normal: (0.0510456, -0.0192981, 0.99851)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.823, -3.5375, -3.588), normal: (-0.0860175, -0.117865, 0.989297)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.979, 6.8455, 3.305), normal: (0.0542994, -0.0304509, 0.99806)
+protocols.membrane.geometry.Embedding: Total Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (1.11022e-16, -0.000125, -0.000125), normal: (1.03446e-05, 2.44815e-06, 1)
+protocols.membrane.MembranePositionMoverFromTopologyMover: Final foldtree after reset: Is membrane fixed? 1
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER FastRelax - fast_relax=======================
+core.pack.dunbrack.RotamerLibrary: Using Dunbrack library binary file '/home/ralford/apps/Rosetta/main/database/rotamer/ExtendedOpt1-5/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: Dunbrack 2010 library took 0.16 seconds to load from binary
+protocols.relax.FastRelax: CMD: repeat  -292.041  0  0  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1755 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -498.183  0.112701  0.112701  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1553 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -480.887  0.139232  0.139232  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1472 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -488.134  0.698671  0.698671  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1365 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -458.052  0.605215  0.605215  0.44
+protocols.relax.FastRelax: MRP: 0  -458.052  -458.052  0.605215  0.605215  
+protocols.relax.FastRelax: CMD: accept_to_best  -458.052  0.605215  0.605215  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -458.052  0.605215  0.605215  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1726 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.19209e-07 Deriv= -37.7392 Finite Diff= 13.4637
+protocols.relax.FastRelax: CMD: ramp_repack_min  -303.986  0.230441  0.230441  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1468 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -311.667  0.259692  0.259692  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1370 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-06 Deriv= -2.85565 Finite Diff= 0.468056
+protocols.relax.FastRelax: CMD: ramp_repack_min  -412.306  0.752077  0.752077  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1364 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -386.781  0.67623  0.67623  0.44
+protocols.relax.FastRelax: MRP: 1  -386.781  -458.052  0.605215  0.605215  
+protocols.relax.FastRelax: CMD: accept_to_best  -386.781  0.67623  0.67623  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -386.781  0.67623  0.67623  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1647 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  -295.242  0.270233  0.270233  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1471 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -266.544  0.29311  0.29311  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1415 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -403.886  1.00628  1.00628  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1340 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.45519e-11 Deriv= -48.6483 Finite Diff= 9.47656
+protocols.relax.FastRelax: CMD: ramp_repack_min  -379.31  1.1973  1.1973  0.44
+protocols.relax.FastRelax: MRP: 2  -379.31  -458.052  0.605215  0.605215  
+protocols.relax.FastRelax: CMD: accept_to_best  -379.31  1.1973  1.1973  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -379.31  1.1973  1.1973  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1698 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.19209e-07 Deriv= -4.02359 Finite Diff= 1.04298
+protocols.relax.FastRelax: CMD: ramp_repack_min  -352.744  0.259589  0.259589  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1470 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -336.28  0.308178  0.308178  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1379 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -400.127  0.882949  0.882949  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1272 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -361.115  0.89232  0.89232  0.44
+protocols.relax.FastRelax: MRP: 3  -361.115  -458.052  0.605215  0.605215  
+protocols.relax.FastRelax: CMD: accept_to_best  -361.115  0.89232  0.89232  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -361.115  0.89232  0.89232  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1640 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  242.933  0.571821  0.571821  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1354 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  3.10567  0.616965  0.616965  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1282 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -265.318  1.35062  1.35062  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1264 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -200.794  1.42279  1.42279  0.44
+protocols.relax.FastRelax: MRP: 4  -200.794  -458.052  0.605215  0.605215  
+protocols.relax.FastRelax: CMD: accept_to_best  -200.794  1.42279  1.42279  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -200.794  1.42279  1.42279  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1662 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  -38.4203  0.503453  0.503453  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1399 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -78.3293  0.538601  0.538601  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1269 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-06 Deriv= -3.21952 Finite Diff= 0.0839233
+protocols.relax.FastRelax: CMD: ramp_repack_min  -248.812  1.47313  1.47313  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1297 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.45519e-11 Deriv= -48.7107 Finite Diff= 1.87695
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.21125e-09 Deriv= -121.863 Finite Diff= 2.57849
+protocols.relax.FastRelax: CMD: ramp_repack_min  -222.771  1.76306  1.76306  0.44
+protocols.relax.FastRelax: MRP: 5  -222.771  -458.052  0.605215  0.605215  
+protocols.relax.FastRelax: CMD: accept_to_best  -222.771  1.76306  1.76306  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -222.771  1.76306  1.76306  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1657 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.53674e-09 Deriv= -1886.83 Finite Diff= 2.5733e+08
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  693.2  0.700933  0.700933  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1251 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  448.929  0.836169  0.836169  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1189 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -25.3508  2.23176  2.23176  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1192 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.19209e-07 Deriv= -4.88448 Finite Diff= 0.570569
+protocols.relax.FastRelax: CMD: ramp_repack_min  -50.0392  2.80091  2.80091  0.44
+protocols.relax.FastRelax: MRP: 6  -50.0392  -458.052  0.605215  0.605215  
+protocols.relax.FastRelax: CMD: accept_to_best  -50.0392  2.80091  2.80091  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -50.0392  2.80091  2.80091  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1612 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.98023e-08 Deriv= -52.0799 Finite Diff= 44.7527
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.49012e-08 Deriv= -8.40851 Finite Diff= 4.0613
+protocols.relax.FastRelax: CMD: ramp_repack_min  335.556  0.627552  0.627552  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1242 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  238.855  0.699203  0.699203  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1178 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -95.1323  2.65148  2.65148  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1174 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.53674e-07 Deriv= -7.70102 Finite Diff= 1.24919
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.45058e-09 Deriv= -92.4546 Finite Diff= -8.3614
+protocols.relax.FastRelax: CMD: ramp_repack_min  -63.1159  2.70344  2.70344  0.44
+protocols.relax.FastRelax: MRP: 7  -63.1159  -458.052  0.605215  0.605215  
+protocols.relax.FastRelax: CMD: accept_to_best  -63.1159  2.70344  2.70344  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -63.1159  2.70344  2.70344  0.44
+protocols::checkpoint: Deleting checkpoints of FastRelax
+protocols.rosetta_scripts.ParsedProtocol: setting status to success
+protocols.jd2.JobDistributor: vatp_native_0001_0001 reported success in 840 seconds
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 5 jobs considered, 1 jobs attempted in 840 seconds
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: 2019.14.post.dev+649.rfalford12.implicitlipidmembrane.811831f 811831f2ca1befa9488e3e94649e4a514052e689 git@github.com:RosettaCommons/main.git 2019-04-12T09:38:27
+core.init: command: condor_exec.exe -packing:pack_missing_sidechains 0 -run:multiple_processes_writing_to_one_directory -in:file:s ../vatp_native_0001.pdb -parser:protocol ../../../../../xml/test_3.3_decoy_refinement.xml -constrain_relax_to_start_coords -parser:script_vars sfxn_weights=mpframework_smooth_fa_2012 -restore_talaris_behavior -restore_lazaridis_imm_behavior -mp:setup:spanfiles ../vatp.span -out:file:scorefile M12_vatp_refined_native.sc -nstruct 5
+core.init: 'RNG device' seed mode, using '/dev/urandom', seed=1301561072 seed_offset=0 real_seed=1301561072
+core.init.random: RandomGenerator:init: Normal mode, seed=1301561072 RG_type=mt19937
+core.init: Resolved executable path: /home/ralford/apps/Rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccrelease
+core.init: Looking for database based on location of executable: /home/ralford/apps/Rosetta/main/database/
+protocols.jd2.PDBJobInputter: Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: pushed ../vatp_native_0001.pdb nstruct indices 1 - 5
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from PDB ../vatp_native_0001.pdb
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 544 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.68 seconds.
+core.import_pose.import_pose: File '../vatp_native_0001.pdb' automatically determined to be of type PDB
+protocols.rosetta_scripts.RosettaScriptsParser: dock_design_filename=../../../../../xml/test_3.3_decoy_refinement.xml
+protocols.rosetta_scripts.RosettaScriptsParser: Variable substitution will occur with the following values: '%%sfxn_weights%%'='mpframework_smooth_fa_2012';  
+protocols.rosetta_scripts.RosettaScriptsParser: Substituted script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012" />
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" scorefxn="memb_hires" repeats="8"/> 
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires" />
+</ROSETTASCRIPTS>
+protocols.rosetta_scripts.RosettaScriptsParser: Generating XML Schema for rosetta_scripts...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Initializing schema validator...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Validating input script...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Parsed script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012"/>
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" repeats="8" scorefxn="memb_hires"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires"/>
+</ROSETTASCRIPTS>
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: talaris2014.wts
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/rama/Rama_smooth_dyn.dat_ss_6.4
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_pp
+core.scoring.etable: Using alternate parameters: LJ_RADIUS_SOFT in Etable construction.
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/PairEPotential/pdb_pair_stats_fine
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cbeta_den.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cenpack_log.txt
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+core.scoring.etable: Using alternate parameters: LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Starting membrane specific energy table calculation
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating membrane specific energy tables.
+basic.io.database: Database file opened: scoring/score_functions/MembranePotential/CEN10_Menv_smooth_log.txt
+protocols.jd2.parser.ScoreFunctionLoader: defined score function "memb_hires" with weights "mpframework_smooth_fa_2012"
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "add_memb" of type AddMembraneMover
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "init_pos" of type MembranePositionFromTopologyMover
+protocols.relax.FastRelax: Looking for default.txt
+protocols.relax.RelaxScriptManager: ================== Reading script file: /home/ralford/apps/Rosetta/main/database/sampling/relax_scripts/default.txt ==================
+protocols.relax.RelaxScriptManager: repeat %%nrepeats%%
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.02  0.01     1.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.250 0.01     0.5
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.550 0.01     0.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 1     0.00001  0.0
+protocols.relax.RelaxScriptManager: accept_to_best
+protocols.relax.RelaxScriptManager: endrepeat
+protocols.relax.FastRelax: Looking for default.txt
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "fast_relax" of type FastRelax
+protocols.rosetta_scripts.ParsedProtocol: ParsedProtocol mover with the following movers and filters
+protocols.rosetta_scripts.ParsedProtocol: added mover "add_memb" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "init_pos" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "fast_relax" with filter "true_filter"
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from saved copy ../vatp_native_0001.pdb
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER AddMembraneMover - add_memb=======================
+protocols.membrane.AddMembraneMover: Found membrane residue 146 in PDB.
+protocols.membrane.AddMembraneMover: No flag given: Adding membrane residue from PDB at residue number 146
+core.conformation.membrane.SpanningTopology: Filling membrane spanning topology from spanfile ../vatp.span
+core.conformation.membrane.SpanningTopology: nres: 146
+core.conformation.membrane.SpanningTopology: nres_topo: 145
+core.conformation.membrane.SpanningTopology: total residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Pose is in pose numbering scheme.
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.membrane.AddMembraneMover: Setting initial membrane center and normal to position used by the user-provided membrane residue
+protocols.membrane.util: chain 1 1
+protocols.membrane.util: chainid 1 chain A
+protocols.membrane.util: com (0.972295, -0.191466, -0.589372)
+protocols.membrane.util:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+core.conformation.membrane.MembraneInfo: Setting a new membrane jump number in MembraneInfo to 1.
+core.conformation.membrane.MembraneInfo: Use with caution!
+protocols.membrane.SetMembranePositionMover: Calling SetMembranePositionMover
+protocols.membrane.SetMembranePositionMover: Starting foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.SetMembranePositionMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.AddMembraneMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: MembraneInfo: Information about this Membrane Protein
+protocols.membrane.AddMembraneMover: Membrane Residue Num: 146
+protocols.membrane.AddMembraneMover: Membrane Fold Tree Jump: 1
+protocols.membrane.AddMembraneMover: Membrane Thickness: 15
+protocols.membrane.AddMembraneMover: Membrane Steepness: 10
+protocols.membrane.AddMembraneMover: Membrane Spanning Topology 
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER MembranePositionFromTopologyMover - init_pos=======================
+protocols.membrane.MembranePositionMoverFromTopologyMover: Reordering foldtree:
+protocols.membrane.MembranePositionMoverFromTopologyMover: Starting foldtree: Is membrane fixed? 0
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0001--0146  001
+0001--0145
+
+protocols.membrane.MembranePositionMoverFromTopologyMover: Computing initial membrane position from structure...
+protocols.membrane.geometry.Embedding: Constructing Embedding object from topology and pose
+protocols.membrane.geometry.Embedding: Computing membrane embedding from TMspans: 
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 47 to 67
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 77 to 97
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 123 to 143
+protocols.membrane.geometry.Embedding: Span Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-1.7815, -7.1375, -1.8965), normal: (-0.0192865, 0.167624, 0.985662)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-6.0205, 3.829, 2.179), normal: (0.0510456, -0.0192981, 0.99851)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.823, -3.5375, -3.588), normal: (-0.0860175, -0.117865, 0.989297)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.979, 6.8455, 3.305), normal: (0.0542994, -0.0304509, 0.99806)
+protocols.membrane.geometry.Embedding: Total Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (1.11022e-16, -0.000125, -0.000125), normal: (1.03446e-05, 2.44815e-06, 1)
+protocols.membrane.MembranePositionMoverFromTopologyMover: Final foldtree after reset: Is membrane fixed? 1
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER FastRelax - fast_relax=======================
+core.pack.dunbrack.RotamerLibrary: Using Dunbrack library binary file '/home/ralford/apps/Rosetta/main/database/rotamer/ExtendedOpt1-5/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: Dunbrack 2010 library took 0.2 seconds to load from binary
+protocols.relax.FastRelax: CMD: repeat  -292.041  0  0  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1755 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -498.877  0.113877  0.113877  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1555 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -470.073  0.139034  0.139034  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1475 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -485.701  0.717857  0.717857  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1366 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -458.519  0.754922  0.754922  0.44
+protocols.relax.FastRelax: MRP: 0  -458.519  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  -458.519  0.754922  0.754922  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -458.519  0.754922  0.754922  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1709 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  1385.99  0.922791  0.922791  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1265 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.19209e-07 Deriv= -26.8738 Finite Diff= 18.7028
+protocols.relax.FastRelax: CMD: ramp_repack_min  928.516  1.04634  1.04634  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1208 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  1717.82  4.41286  4.41286  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1225 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.38419e-07 Deriv= -15.9101 Finite Diff= -1.33426
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.90735e-06 Deriv= -6.14693 Finite Diff= -0.363827
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.38419e-07 Deriv= -12.2545 Finite Diff= 20.5616
+protocols.relax.FastRelax: CMD: ramp_repack_min  14908.7  6.93989  6.93989  0.44
+protocols.relax.FastRelax: MRP: 1  14908.7  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  14908.7  6.93989  6.93989  0.44
+protocols.relax.FastRelax: CMD: endrepeat  14908.7  6.93989  6.93989  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1564 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  1199.19  0.795754  0.795754  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1306 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  1039.86  0.928565  0.928565  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1274 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  82.9599  2.89439  2.89439  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1281 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-06 Deriv= -1.94872 Finite Diff= -0.157232
+protocols.relax.FastRelax: CMD: ramp_repack_min  101.637  3.01649  3.01649  0.44
+protocols.relax.FastRelax: MRP: 2  101.637  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  101.637  3.01649  3.01649  0.44
+protocols.relax.FastRelax: CMD: endrepeat  101.637  3.01649  3.01649  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1625 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  683.426  0.685679  0.685679  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1288 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.45058e-09 Deriv= -4.47694 Finite Diff= 2.13445
+protocols.relax.FastRelax: CMD: ramp_repack_min  531.582  0.82878  0.82878  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1303 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 4.76837e-07 Deriv= -18.0817 Finite Diff= -0.656703
+protocols.relax.FastRelax: CMD: ramp_repack_min  57.4177  2.65624  2.65624  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1345 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.45058e-09 Deriv= -43.4123 Finite Diff= 2.19662
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 4.76837e-07 Deriv= -31.4708 Finite Diff= -0.047632
+protocols.relax.FastRelax: CMD: ramp_repack_min  88.0701  3.39528  3.39528  0.44
+protocols.relax.FastRelax: MRP: 3  88.0701  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  88.0701  3.39528  3.39528  0.44
+protocols.relax.FastRelax: CMD: endrepeat  88.0701  3.39528  3.39528  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1634 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  616.818  0.715408  0.715408  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1276 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  590.625  0.897212  0.897212  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1278 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -45.1378  2.86806  2.86806  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1270 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.19209e-07 Deriv= -38.7988 Finite Diff= -1.29389
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.89341e-14 Deriv= -16484.3 Finite Diff= 3376.95
+protocols.relax.FastRelax: CMD: ramp_repack_min  29.5271  3.05639  3.05639  0.44
+protocols.relax.FastRelax: MRP: 4  29.5271  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  29.5271  3.05639  3.05639  0.44
+protocols.relax.FastRelax: CMD: endrepeat  29.5271  3.05639  3.05639  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1625 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  862.295  0.770693  0.770693  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1173 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  671.936  0.910134  0.910134  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1267 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  40.5972  2.49028  2.49028  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1324 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 4.76837e-07 Deriv= -3.53666 Finite Diff= 0.143359
+protocols.relax.FastRelax: CMD: ramp_repack_min  63.6926  2.80504  2.80504  0.44
+protocols.relax.FastRelax: MRP: 5  63.6926  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  63.6926  2.80504  2.80504  0.44
+protocols.relax.FastRelax: CMD: endrepeat  63.6926  2.80504  2.80504  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1676 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  743.59  0.760529  0.760529  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1304 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  689.059  0.908921  0.908921  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1237 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  15.0332  3.5122  3.5122  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1252 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.38419e-07 Deriv= -2.18543 Finite Diff= 1.01885
+protocols.relax.FastRelax: CMD: ramp_repack_min  68.3271  3.9168  3.9168  0.44
+protocols.relax.FastRelax: MRP: 6  68.3271  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  68.3271  3.9168  3.9168  0.44
+protocols.relax.FastRelax: CMD: endrepeat  68.3271  3.9168  3.9168  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1581 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  1110.98  0.843904  0.843904  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1211 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  872.927  0.970586  0.970586  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1237 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  134.592  2.95334  2.95334  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1261 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  219.727  3.26805  3.26805  0.44
+protocols.relax.FastRelax: MRP: 7  219.727  -458.519  0.754922  0.754922  
+protocols.relax.FastRelax: CMD: accept_to_best  219.727  3.26805  3.26805  0.44
+protocols.relax.FastRelax: CMD: endrepeat  219.727  3.26805  3.26805  0.44
+protocols::checkpoint: Deleting checkpoints of FastRelax
+protocols.rosetta_scripts.ParsedProtocol: setting status to success
+protocols.jd2.JobDistributor: vatp_native_0001_0002 reported success in 963 seconds
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 5 jobs considered, 1 jobs attempted in 963 seconds
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: 2019.14.post.dev+649.rfalford12.implicitlipidmembrane.811831f 811831f2ca1befa9488e3e94649e4a514052e689 git@github.com:RosettaCommons/main.git 2019-04-12T09:38:27
+core.init: command: condor_exec.exe -packing:pack_missing_sidechains 0 -run:multiple_processes_writing_to_one_directory -in:file:s ../vatp_native_0001.pdb -parser:protocol ../../../../../xml/test_3.3_decoy_refinement.xml -constrain_relax_to_start_coords -parser:script_vars sfxn_weights=mpframework_smooth_fa_2012 -restore_talaris_behavior -restore_lazaridis_imm_behavior -mp:setup:spanfiles ../vatp.span -out:file:scorefile M12_vatp_refined_native.sc -nstruct 5
+core.init: 'RNG device' seed mode, using '/dev/urandom', seed=782586209 seed_offset=0 real_seed=782586209
+core.init.random: RandomGenerator:init: Normal mode, seed=782586209 RG_type=mt19937
+core.init: Resolved executable path: /home/ralford/apps/Rosetta/main/source/build/src/release/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccrelease
+core.init: Looking for database based on location of executable: /home/ralford/apps/Rosetta/main/database/
+protocols.jd2.PDBJobInputter: Instantiate PDBJobInputter
+protocols.jd2.PDBJobInputter: PDBJobInputter::fill_jobs
+protocols.jd2.PDBJobInputter: pushed ../vatp_native_0001.pdb nstruct indices 1 - 5
+protocols.evaluation.ChiWellRmsdEvaluatorCreator: Evaluation Creator active ... 
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from PDB ../vatp_native_0001.pdb
+core.chemical.GlobalResidueTypeSet: Finished initializing fa_standard residue type set.  Created 544 residue types
+core.chemical.GlobalResidueTypeSet: Total time to initialize 0.68 seconds.
+core.import_pose.import_pose: File '../vatp_native_0001.pdb' automatically determined to be of type PDB
+protocols.rosetta_scripts.RosettaScriptsParser: dock_design_filename=../../../../../xml/test_3.3_decoy_refinement.xml
+protocols.rosetta_scripts.RosettaScriptsParser: Variable substitution will occur with the following values: '%%sfxn_weights%%'='mpframework_smooth_fa_2012';  
+protocols.rosetta_scripts.RosettaScriptsParser: Substituted script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012" />
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" scorefxn="memb_hires" repeats="8"/> 
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires" />
+</ROSETTASCRIPTS>
+protocols.rosetta_scripts.RosettaScriptsParser: Generating XML Schema for rosetta_scripts...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Initializing schema validator...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Validating input script...
+protocols.rosetta_scripts.RosettaScriptsParser: ...done
+protocols.rosetta_scripts.RosettaScriptsParser: Parsed script:
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="memb_hires" weights="mpframework_smooth_fa_2012"/>
+	</SCOREFXNS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb"/>
+		<MembranePositionFromTopologyMover name="init_pos"/>
+		<FastRelax name="fast_relax" repeats="8" scorefxn="memb_hires"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="add_memb"/>
+		<Add mover="init_pos"/>
+		<Add mover="fast_relax"/>
+	</PROTOCOLS>
+	<OUTPUT scorefxn="memb_hires"/>
+</ROSETTASCRIPTS>
+core.scoring.ScoreFunctionFactory: SCOREFUNCTION: talaris2014.wts
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBPoly1D.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBFadeIntervals.csv
+basic.io.database: Database file opened: scoring/score_functions/hbonds/sp2_elec_params/HBEval.csv
+basic.io.database: Database file opened: scoring/score_functions/rama/Rama_smooth_dyn.dat_ss_6.4
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_n
+basic.io.database: Database file opened: scoring/score_functions/P_AA_pp/P_AA_pp
+core.scoring.etable: Using alternate parameters: LJ_RADIUS_SOFT in Etable construction.
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+basic.io.database: Database file opened: scoring/score_functions/PairEPotential/pdb_pair_stats_fine
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/InterchainPotential/interchain_pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/env_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cbeta_den.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/pair_log.txt
+basic.io.database: Database file opened: scoring/score_functions/EnvPairPotential/cenpack_log.txt
+core.scoring.etable: Starting energy table calculation
+core.scoring.etable: smooth_etable: changing atr/rep split to bottom of energy well
+core.scoring.etable: smooth_etable: spline smoothing lj etables (maxdis = 6)
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating energy tables.
+core.scoring.etable: Using alternate parameters: LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGFREE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Using alternate parameters: MEMB_LK_DGREFCE in MembEtable construction.
+core.scoring.etable: Starting membrane specific energy table calculation
+core.scoring.etable: smooth_etable: spline smoothing solvation etables (max_dis = 6)
+core.scoring.etable: Finished calculating membrane specific energy tables.
+basic.io.database: Database file opened: scoring/score_functions/MembranePotential/CEN10_Menv_smooth_log.txt
+protocols.jd2.parser.ScoreFunctionLoader: defined score function "memb_hires" with weights "mpframework_smooth_fa_2012"
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "add_memb" of type AddMembraneMover
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "init_pos" of type MembranePositionFromTopologyMover
+protocols.relax.FastRelax: Looking for default.txt
+protocols.relax.RelaxScriptManager: ================== Reading script file: /home/ralford/apps/Rosetta/main/database/sampling/relax_scripts/default.txt ==================
+protocols.relax.RelaxScriptManager: repeat %%nrepeats%%
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.02  0.01     1.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.250 0.01     0.5
+protocols.relax.RelaxScriptManager: ramp_repack_min 0.550 0.01     0.0
+protocols.relax.RelaxScriptManager: ramp_repack_min 1     0.00001  0.0
+protocols.relax.RelaxScriptManager: accept_to_best
+protocols.relax.RelaxScriptManager: endrepeat
+protocols.relax.FastRelax: Looking for default.txt
+protocols.rosetta_scripts.RosettaScriptsParser: Defined mover named "fast_relax" of type FastRelax
+protocols.rosetta_scripts.ParsedProtocol: ParsedProtocol mover with the following movers and filters
+protocols.rosetta_scripts.ParsedProtocol: added mover "add_memb" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "init_pos" with filter "true_filter"
+protocols.rosetta_scripts.ParsedProtocol: added mover "fast_relax" with filter "true_filter"
+protocols.jd2.PDBJobInputter: PDBJobInputter::pose_from_job
+protocols.jd2.PDBJobInputter: filling pose from saved copy ../vatp_native_0001.pdb
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER AddMembraneMover - add_memb=======================
+protocols.membrane.AddMembraneMover: Found membrane residue 146 in PDB.
+protocols.membrane.AddMembraneMover: No flag given: Adding membrane residue from PDB at residue number 146
+core.conformation.membrane.SpanningTopology: Filling membrane spanning topology from spanfile ../vatp.span
+core.conformation.membrane.SpanningTopology: nres: 146
+core.conformation.membrane.SpanningTopology: nres_topo: 145
+core.conformation.membrane.SpanningTopology: total residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Pose is in pose numbering scheme.
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.membrane.AddMembraneMover: Setting initial membrane center and normal to position used by the user-provided membrane residue
+protocols.membrane.util: chain 1 1
+protocols.membrane.util: chainid 1 chain A
+protocols.membrane.util: com (0.972295, -0.191466, -0.589372)
+protocols.membrane.util:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+core.conformation.membrane.MembraneInfo: Setting a new membrane jump number in MembraneInfo to 1.
+core.conformation.membrane.MembraneInfo: Use with caution!
+protocols.membrane.SetMembranePositionMover: Calling SetMembranePositionMover
+protocols.membrane.SetMembranePositionMover: Starting foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.SetMembranePositionMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.SetMembranePositionMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: Final foldtree: Is membrane fixed? 1
+protocols.membrane.AddMembraneMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.membrane.AddMembraneMover: MembraneInfo: Information about this Membrane Protein
+protocols.membrane.AddMembraneMover: Membrane Residue Num: 146
+protocols.membrane.AddMembraneMover: Membrane Fold Tree Jump: 1
+protocols.membrane.AddMembraneMover: Membrane Thickness: 15
+protocols.membrane.AddMembraneMover: Membrane Steepness: 10
+protocols.membrane.AddMembraneMover: Membrane Spanning Topology 
+core.conformation.membrane.SpanningTopology: Total # of TM spans: 4
+core.conformation.membrane.SpanningTopology: Number of residues in spanfile: 145
+core.conformation.membrane.SpanningTopology: Span 1: start: 2, end: 22 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 2: start: 47, end: 67 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 3: start: 77, end: 97 orientation: 1
+core.conformation.membrane.SpanningTopology: Span 4: start: 123, end: 143 orientation: 1
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER MembranePositionFromTopologyMover - init_pos=======================
+protocols.membrane.MembranePositionMoverFromTopologyMover: Reordering foldtree:
+protocols.membrane.MembranePositionMoverFromTopologyMover: Starting foldtree: Is membrane fixed? 0
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0001--0146  001
+0001--0145
+
+protocols.membrane.MembranePositionMoverFromTopologyMover: Computing initial membrane position from structure...
+protocols.membrane.geometry.Embedding: Constructing Embedding object from topology and pose
+protocols.membrane.geometry.Embedding: Computing membrane embedding from TMspans: 
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 2 to 22
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 47 to 67
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 77 to 97
+protocols.membrane.geometry.EmbeddingDef: Computing membrane embedding from TMspan 123 to 143
+protocols.membrane.geometry.Embedding: Span Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-1.7815, -7.1375, -1.8965), normal: (-0.0192865, 0.167624, 0.985662)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (-6.0205, 3.829, 2.179), normal: (0.0510456, -0.0192981, 0.99851)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.823, -3.5375, -3.588), normal: (-0.0860175, -0.117865, 0.989297)
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (3.979, 6.8455, 3.305), normal: (0.0542994, -0.0304509, 0.99806)
+protocols.membrane.geometry.Embedding: Total Embedding: 
+protocols.membrane.geometry.EmbeddingDef: Embedding: center: (1.11022e-16, -0.000125, -0.000125), normal: (1.03446e-05, 2.44815e-06, 1)
+protocols.membrane.MembranePositionMoverFromTopologyMover: Final foldtree after reset: Is membrane fixed? 1
+protocols.membrane.MembranePositionMoverFromTopologyMover:    Edge   	   Jump     Jump #
+          	0146--0001  001
+0001--0145
+
+protocols.rosetta_scripts.ParsedProtocol: =======================BEGIN MOVER FastRelax - fast_relax=======================
+core.pack.dunbrack.RotamerLibrary: Using Dunbrack library binary file '/home/ralford/apps/Rosetta/main/database/rotamer/ExtendedOpt1-5/Dunbrack10.lib.bin'.
+core.pack.dunbrack.RotamerLibrary: Dunbrack 2010 library took 0.19 seconds to load from binary
+protocols.relax.FastRelax: CMD: repeat  -292.041  0  0  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1755 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -497.544  0.110779  0.110779  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1556 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -481.653  0.140465  0.140465  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1485 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -489.447  0.702396  0.702396  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1377 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -457.321  0.639146  0.639146  0.44
+protocols.relax.FastRelax: MRP: 0  -457.321  -457.321  0.639146  0.639146  
+protocols.relax.FastRelax: CMD: accept_to_best  -457.321  0.639146  0.639146  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -457.321  0.639146  0.639146  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1716 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  -171.51  0.425592  0.425592  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1533 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -169.217  0.558687  0.558687  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1403 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 5.96046e-08 Deriv= -37.4687 Finite Diff= 2.7542
+protocols.relax.FastRelax: CMD: ramp_repack_min  -377.642  1.38136  1.38136  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1358 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.45058e-09 Deriv= -37.5272 Finite Diff= 1.88474e+07
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 8.70548e-09 Deriv= -46.7307 Finite Diff= 1.61304e+07
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.11606e-06 Deriv= -46.7307 Finite Diff= 125771
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#65
+protocols.relax.FastRelax: CMD: ramp_repack_min  -350.267  1.35017  1.35017  0.44
+protocols.relax.FastRelax: MRP: 1  -350.267  -457.321  0.639146  0.639146  
+protocols.relax.FastRelax: CMD: accept_to_best  -350.267  1.35017  1.35017  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -350.267  1.35017  1.35017  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1660 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  201.677  0.599799  0.599799  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1424 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.19209e-07 Deriv= -10.1111 Finite Diff= 5.33175
+protocols.relax.FastRelax: CMD: ramp_repack_min  27.481  0.661252  0.661252  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1372 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -272.532  2.47788  2.47788  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1380 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.38419e-07 Deriv= -7.70718 Finite Diff= 0.747045
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.14582e-07 Deriv= -2.6991 Finite Diff= 1.53868
+protocols.relax.FastRelax: CMD: ramp_repack_min  -265.366  3.03402  3.03402  0.44
+protocols.relax.FastRelax: MRP: 2  -265.366  -457.321  0.639146  0.639146  
+protocols.relax.FastRelax: CMD: accept_to_best  -265.366  3.03402  3.03402  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -265.366  3.03402  3.03402  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1657 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  190.855  0.565341  0.565341  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1456 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  138.661  0.737013  0.737013  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1368 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -233.514  2.18677  2.18677  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1308 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-06 Deriv= -3.62272 Finite Diff= 2.09139
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 1.71176e-08 Deriv= -7.28665 Finite Diff= -0.27227
+protocols.relax.FastRelax: CMD: ramp_repack_min  -176.704  2.20839  2.20839  0.44
+protocols.relax.FastRelax: MRP: 3  -176.704  -457.321  0.639146  0.639146  
+protocols.relax.FastRelax: CMD: accept_to_best  -176.704  2.20839  2.20839  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -176.704  2.20839  2.20839  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1694 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  1396.96  1.03341  1.03341  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1329 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  887.058  1.16424  1.16424  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1333 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.45058e-09 Deriv= -102.714 Finite Diff= -3.02614
+protocols.relax.FastRelax: CMD: ramp_repack_min  -65.0985  3.05968  3.05968  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1360 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.53674e-07 Deriv= -6.99856 Finite Diff= 0.240885
+protocols.relax.FastRelax: CMD: ramp_repack_min  -26.9391  3.21467  3.21467  0.44
+protocols.relax.FastRelax: MRP: 4  -26.9391  -457.321  0.639146  0.639146  
+protocols.relax.FastRelax: CMD: accept_to_best  -26.9391  3.21467  3.21467  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -26.9391  3.21467  3.21467  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1696 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.Minimizer: [ WARNING ] LBFGS MAX CYCLES 2000 EXCEEDED, BUT FUNC NOT CONVERGED!
+protocols.relax.FastRelax: CMD: ramp_repack_min  1216.35  0.991244  0.991244  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1235 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.98023e-08 Deriv= -27.3159 Finite Diff= -0.694012
+protocols.relax.FastRelax: CMD: ramp_repack_min  766.147  1.13073  1.13073  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1261 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.72529e-09 Deriv= -101.923 Finite Diff= 2.99201e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.52133e-09 Deriv= -1004.39 Finite Diff= 1.48192e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.40735e-07 Deriv= -1004.39 Finite Diff= 4.6299e+07
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#75
+protocols.relax.FastRelax: CMD: ramp_repack_min  39.2403  3.00163  3.00163  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1393 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-08 Deriv= -21262 Finite Diff= 2.92168e+08
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 5.23225e-08 Deriv= -21262 Finite Diff= 2.13006e+08
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#1
+protocols.relax.FastRelax: CMD: ramp_repack_min  165.953  3.00163  3.00163  0.44
+protocols.relax.FastRelax: MRP: 5  165.953  -457.321  0.639146  0.639146  
+protocols.relax.FastRelax: CMD: accept_to_best  165.953  3.00163  3.00163  0.44
+protocols.relax.FastRelax: CMD: endrepeat  165.953  3.00163  3.00163  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1697 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  886.091  0.947956  0.947956  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1354 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.72529e-09 Deriv= -14.3616 Finite Diff= 2.97558e+09
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 7.04639e-07 Deriv= -117.232 Finite Diff= 1.57312e+07
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#195
+protocols.relax.FastRelax: CMD: ramp_repack_min  717.347  1.09025  1.09025  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1296 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 3.8147e-08 Deriv= -79683.4 Finite Diff= 2.90505e+08
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.70275e-08 Deriv= -79683.4 Finite Diff= 4.10055e+08
+core.optimization.Minimizer: Line search failed even after resetting Hessian; aborting at iter#1
+protocols.relax.FastRelax: CMD: ramp_repack_min  347.961  1.09025  1.09025  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1192 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 5.96046e-08 Deriv= -53.6526 Finite Diff= 17.6983
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 9.53674e-07 Deriv= -4.71827 Finite Diff= -0.33427
+protocols.relax.FastRelax: CMD: ramp_repack_min  127.825  3.90537  3.90537  0.44
+protocols.relax.FastRelax: MRP: 6  127.825  -457.321  0.639146  0.639146  
+protocols.relax.FastRelax: CMD: accept_to_best  127.825  3.90537  3.90537  0.44
+protocols.relax.FastRelax: CMD: endrepeat  127.825  3.90537  3.90537  0.44
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1663 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+core.optimization.LineMinimizer: [ ERROR ] Inaccurate G! step= 2.98023e-08 Deriv= -90.84 Finite Diff= 18.281
+protocols.relax.FastRelax: CMD: ramp_repack_min  789  0.799211  0.799211  0.0088
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1364 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  518.561  0.901014  0.901014  0.11
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1348 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -99.0315  2.06916  2.06916  0.242
+core.pack.task: Packer task: initialize from command line() 
+core.pack.pack_rotamers: built 1344 rotamers at 147 positions.
+core.pack.interaction_graph.interaction_graph_factory: Instantiating DensePDInteractionGraph
+protocols.relax.FastRelax: CMD: ramp_repack_min  -143.543  2.55211  2.55211  0.44
+protocols.relax.FastRelax: MRP: 7  -143.543  -457.321  0.639146  0.639146  
+protocols.relax.FastRelax: CMD: accept_to_best  -143.543  2.55211  2.55211  0.44
+protocols.relax.FastRelax: CMD: endrepeat  -143.543  2.55211  2.55211  0.44
+protocols::checkpoint: Deleting checkpoints of FastRelax
+protocols.rosetta_scripts.ParsedProtocol: setting status to success
+protocols.jd2.JobDistributor: vatp_native_0001_0004 reported success in 994 seconds
+protocols.jd2.JobDistributor: no more batches to process... 
+protocols.jd2.JobDistributor: 5 jobs considered, 1 jobs attempted in 994 seconds

@@ -1,0 +1,7 @@
+Universe = vanilla
+Executable = /home/ralford/apps/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease 
+Arguments = -packing:pack_missing_sidechains 0 -run:multiple_processes_writing_to_one_directory -in:file:s ../rhod_native.pdb -parser:protocol ../../../../../xml/test_3.3_decoy_refinement.xml -constrain_relax_to_start_coords -parser:script_vars sfxn_weights=ref2015 -mp:setup:spanfiles ../rhod.span -out:file:scorefile R15_rhod_refined_native.sc -nstruct 5
+Log = rhod_r15.log
+Error = rhod_r15.err
+Output = rhod_r15.output
+Queue 5

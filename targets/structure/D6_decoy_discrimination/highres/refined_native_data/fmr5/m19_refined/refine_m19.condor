@@ -1,0 +1,7 @@
+Universe = vanilla
+Executable = /home/ralford/apps/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease 
+Arguments = -packing:pack_missing_sidechains 0 -run:multiple_processes_writing_to_one_directory -in:file:s ../fmr5_native_0001.pdb -parser:protocol ../../../../../xml/test_3.3_decoy_refinement.xml -constrain_relax_to_start_coords -parser:script_vars sfxn_weights=franklin2019 -mp:setup:spanfiles ../fmr5.span -out:file:scorefile M19_fmr5_refined_native.sc -nstruct 5 -mp:lipids:composition DLPC
+Log = fmr5_m19.log
+Error = fmr5_m19.err
+Output = fmr5_m19.output
+Queue 5

@@ -1,0 +1,11 @@
+<ROSETTASCRIPTS>
+	<RESIDUE_SELECTORS>
+		<Index name="select_nterm" resnums="1" />
+	</RESIDUE_SELECTORS>	
+	<MOVERS>
+		<ModifyVariantType name="vartype" add_type="METHYLATED_NTERM_VARIANT" remove_type="LOWER_TERMINUS_VARIANT" residue_selector="select_nterm" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="vartype" />
+	</PROTOCOLS>
+</ROSETTASCRIPTS>

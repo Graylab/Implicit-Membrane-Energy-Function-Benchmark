@@ -1,0 +1,11 @@
+<ROSETTASCRIPTS>
+	<RESIDUE_SELECTORS>
+		<Index name="select_cterm" resnums="5" />
+	</RESIDUE_SELECTORS>	
+	<MOVERS>
+		<ModifyVariantType name="vartype" add_type="CTERM_AMIDATION" remove_type="UPPER_TERMINUS_VARIANT" residue_selector="select_cterm" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="vartype" />
+	</PROTOCOLS>
+</ROSETTASCRIPTS>

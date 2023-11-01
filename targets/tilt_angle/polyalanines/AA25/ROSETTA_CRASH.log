@@ -1,0 +1,50 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.40.post.dev+420.Rituparnasamanta.membranepHenergy.9fc5adead90
+[COMMIT_DATE]: 2022-10-03T15:09:15
+[APPLICATION]: /home/rsamant2/Softwares/Rosetta/main/source/bin/relax.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: GNU/Linux
+[COMPILER]: GCC version "8.3.1 20190507 (Red Hat 8.3.1-4)"
+[STDLIB]: libstdc++ version 20190507
+[START_OPTIONS]
+ -in:path:database=/home/rsamant2/Softwares/Rosetta/main/database/ -in:file:s=AA25_0001_0001.pdb -out:overwrite -out:nstruct=6 -out:path:pdb=./ -out:path:score=./ -packing:ex1 -packing:ex2 -packing:ex1aro -packing:ex2aro -relax:constrain_relax_to_start_coords -relax:ramp_constraints=false
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(backtrace_string[abi:cxx11](int)+0x44) [0x155543eda004]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0xe4) [0x155543f091a4]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::UtilityExitException::UtilityExitException(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0xfb) [0x155543ede56b]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::exit(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int)+0x34) [0x155543ede1c4]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libcore.6.so(core::import_pose::pose_from_file(core::pose::Pose&, core::chemical::ResidueTypeSet const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, core::import_pose::ImportPoseOptions const&, bool, core::import_pose::FileType)+0x3ed) [0x15554997efbd]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libcore.6.so(core::import_pose::pose_from_file(core::pose::Pose&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, core::import_pose::ImportPoseOptions const&, bool, core::import_pose::FileType)+0xf5) [0x155549983dd5]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libcore.6.so(core::import_pose::pose_from_file(core::pose::Pose&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool, core::import_pose::FileType)+0x3a) [0x155549983eba]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::jd2::PDBJobInputter::pose_from_job(core::pose::Pose&, std::shared_ptr<protocols::jd2::Job>)+0xd7c) [0x15554a272ccc]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x19d2) [0x15554a23b162]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x14e) [0x15554a23bb6e]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x47) [0x15554a2244d7]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.4.so(protocols::relax::Relax_main(bool)+0x1a93) [0x15554d3813c3]
+/home/rsamant2/Softwares/Rosetta/main/source/bin/relax.linuxgccrelease() [0x40108e]
+/lib64/libc.so.6(__libc_start_main+0xf3) [0x1555408fa873]
+/home/rsamant2/Softwares/Rosetta/main/source/bin/relax.linuxgccrelease() [0x4010fe]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/import_pose/import_pose.cc
+[LINE]: 361
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Cannot open file "AA25_0001_0001.pdb"
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

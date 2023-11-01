@@ -1,0 +1,30 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="s" weights="%%sfxn_weights%%">
+		</ScoreFunction>
+	</SCOREFXNS>
+	<FILTERS>
+		<ScoreType name="repulsive" score_type="fa_rep"  threshold="50.0" scorefxn="s" confidence="1" />
+	</FILTERS>
+	<TASKOPERATIONS>
+			<RestrictToRepacking name="rtrp"/>
+			<ExtraRotamersGeneric name="extra_chi" ex1="1" ex2="1" extrachi_cutoff="0" ex1aro="1" ex2aro="1"/>
+	</TASKOPERATIONS>
+	<MOVERS>
+		<AddMembraneMover name="add_memb" />
+		<TransformIntoMembraneMover name="transform_into_memb" />
+		<AtomCoordinateCstMover name="constrain_relax_to_start_coords" coord_dev="0.5" sidechain="false"/>
+		<FastRelax name="FastRelax" disable_design="true" scorefxn="s" ramp_down_constraints="false" delete_virtual_residues_after_FastRelax="false" repeats="10"/>
+		<PackRotamersMover name="pack_rotamers" scorefxn="s" task_operations="rtrp,extra_chi" nloop="5"/>
+		<MinMover name="minimize_struc" scorefxn="s" chi="1" bb="0" jump="0" type="dfpmin_armijo_nonmonotone" tolerance="0.01"/>
+		<MembraneEnergyLandscapeSampler name="landscape_test" scorefxn="s" interface="%%interface%%" start_z="%%start_z%%" end_z="%%end_z%%" flag_axis="%%flag_axis%%" azimuthal_delta = "30" repack = "true" pH_mode = "true"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="add_memb"/>
+		<Add mover_name="transform_into_memb"/>
+		<Add mover_name="constrain_relax_to_start_coords"/>
+		<Add mover_name="FastRelax"/>
+		<Add filter_name="repulsive"/>
+		<Add mover_name="landscape_test"/>
+	</PROTOCOLS>
+</ROSETTASCRIPTS>

@@ -1,0 +1,7 @@
+Universe = vanilla
+Executable = /home/ralford/apps/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease 
+Arguments = -packing:pack_missing_sidechains 0 -run:multiple_processes_writing_to_one_directory -in:file:s ../ltpa_native_0001.pdb -parser:protocol ../../../../../xml/test_3.3_decoy_refinement.xml -constrain_relax_to_start_coords -parser:script_vars sfxn_weights=mpframework_smooth_fa_2012 -restore_talaris_behavior -restore_lazaridis_imm_behavior -mp:setup:spanfiles ../ltpa.span -out:file:scorefile M12_ltpa_refined_native.sc -nstruct 5
+Log = ltpa_m12.log
+Error = ltpa_m12.err
+Output = ltpa_m12.output
+Queue 5

@@ -1,0 +1,47 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.40.post.dev+420.Rituparnasamanta.membranepHenergy.9fc5adead90
+[COMMIT_DATE]: 2022-10-03T15:09:15
+[APPLICATION]: /home/rsamant2/Softwares/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: GNU/Linux
+[COMPILER]: GCC version "8.3.1 20190507 (Red Hat 8.3.1-4)"
+[STDLIB]: libstdc++ version 20190507
+[START_OPTIONS]
+ -in:file:s=AA28_0001.pdb -parser:protocol=amidation.xml
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(backtrace_string[abi:cxx11](int)+0x44) [0x155543eda004]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0xe4) [0x155543f091a4]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libcore.3.so(core::select::residue_selector::ResidueIndexSelector::apply(core::pose::Pose const&) const+0x975) [0x1555479411b5]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.3.so(protocols::simple_moves::ModifyVariantTypeMover::apply(core::pose::Pose&)+0x91) [0x15554c31f2f1]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x211) [0x15554a6ce191]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x1a) [0x15554a6ce59a]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x15554a6cec50]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x2a6) [0x15554a6cfbd6]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0xd3a) [0x15554a23a4ca]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x14e) [0x15554a23bb6e]
+/home/rsamant2/Softwares/Rosetta/main/source/build/src/release/linux/4.18/64/x86/gcc/9.3/default/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x47) [0x15554a2244d7]
+/home/rsamant2/Softwares/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease() [0x404427]
+/lib64/libc.so.6(__libc_start_main+0xf3) [0x1555408fa873]
+/home/rsamant2/Softwares/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease() [0x40465e]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/select/residue_selector/ResidueIndexSelector.cc
+[LINE]: 123
+[START_MESSAGE]
+Residue 28 not found in pose!
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

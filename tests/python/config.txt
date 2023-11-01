@@ -1,0 +1,6 @@
+benchmark = /home/rsamant2/scratch16-jgray21/rsamant2/Implicit-Membrane-Energy-Function-Benchmark-Electrostatics/Implicit-Membrane-Energy-Function-Benchmark-master/
+rosettadir = /home/rsamant2/Softwares/Rosetta/main/source/bin
+rosettampidir = /home/rsamant2/data_jgray21/aharmal1/Rosetta/main/source/bin
+platform = linux
+buildenv = release
+compiler = gcc

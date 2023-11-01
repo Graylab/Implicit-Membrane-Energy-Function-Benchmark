@@ -1,0 +1,23 @@
+-642.212	4uc2_ignorechain_0007
+-641.541	4uc2_ignorechain_0001
+-640.979	4uc2_ignorechain_0014
+-640.958	4uc2_ignorechain_0015
+-639.799	4uc2_ignorechain_0017
+-639.726	4uc2_ignorechain_0019
+-639.055	4uc2_ignorechain_0006
+-638.984	4uc2_ignorechain_0004
+-638.381	4uc2_ignorechain_0013
+-638.190	4uc2_ignorechain_0011
+-637.912	4uc2_ignorechain_0005
+-637.501	4uc2_ignorechain_0020
+-637.492	4uc2_ignorechain_0002
+-636.437	4uc2_ignorechain_0009
+-636.294	4uc2_ignorechain_0008
+-636.124	4uc2_ignorechain_0003
+-635.949	4uc2_ignorechain_0016
+-634.985	4uc2_ignorechain_0012
+-634.909	4uc2_ignorechain_0010
+-633.876	4uc2_ignorechain_0018
+-632.115	4uc2_ignorechain_0021
+total_score	description
+	

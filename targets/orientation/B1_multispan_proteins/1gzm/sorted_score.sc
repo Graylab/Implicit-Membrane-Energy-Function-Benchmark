@@ -1,0 +1,20 @@
+-373.592	1gzm_ignorechain_0018
+-373.566	1gzm_ignorechain_0010
+-371.578	1gzm_ignorechain_0015
+-370.531	1gzm_ignorechain_0004
+-370.239	1gzm_ignorechain_0014
+-369.893	1gzm_ignorechain_0011
+-369.743	1gzm_ignorechain_0012
+-369.568	1gzm_ignorechain_0017
+-369.394	1gzm_ignorechain_0008
+-368.353	1gzm_ignorechain_0009
+-368.147	1gzm_ignorechain_0016
+-366.833	1gzm_ignorechain_0007
+-364.939	1gzm_ignorechain_0013
+-362.874	1gzm_ignorechain_0005
+-362.229	1gzm_ignorechain_0002
+-361.894	1gzm_ignorechain_0001
+-361.552	1gzm_ignorechain_0003
+-361.104	1gzm_ignorechain_0006
+total_score	description
+	
