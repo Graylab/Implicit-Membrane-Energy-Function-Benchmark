@@ -98,8 +98,8 @@ The final step is to visualize and analyze the results of each benchmark tests. 
 
 	Rscript analyze_f19_tests.R 
 
-If one wants to avoid using R package you can also keep using the python package. 
-This code is particularly written for tests 1,2,5,7 and 9 (Results for Franklin2023 paper). 
+If you want to avoid using R package you can also keep using the python. 
+The following code is particularly written for tests 1,2,5,7 and 9 (Results for Franklin2023 paper). 
 	'./plot_benchmark_dataset --energy_fxn franklin2023 --which_tests ddG-of-mutation'
 
 #### Determining the weights of score function #####
