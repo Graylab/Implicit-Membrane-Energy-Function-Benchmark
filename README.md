@@ -103,4 +103,4 @@ The following code is particularly written for tests 1,2,5,7 and 9 (Results for 
 	'./plot_benchmark_dataset --energy_fxn franklin2023 --which_tests ddG-of-mutation'
 
 #### Determining the weights of score function #####
-python3 calculate_franklin2023_weights.py
+./calculate_franklin2023_weights.py
