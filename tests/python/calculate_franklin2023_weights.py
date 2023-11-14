@@ -85,7 +85,7 @@ def main():
 def calculate_weights():
     config = read_config.read_config()
     
-    outdir = config.benchmark_path + "data/franklin2021/" + "ddG-of-mutation/afternheavyatomcorrection/fa_wb_1.0_felecbilayer_1.0_fimm_1.0/"
+    outdir = config.benchmark_path + "data/franklin2021/" + "ddG-of-mutation/fa_wb_1.0_felecbilayer_1.0_fimm_1.0/"
     ompla_file = outdir + "C1_OmpLA_canonical_ddGs/breakdown.sc" 
     df_ompla = pd.read_csv(ompla_file, delimiter=" ")
     df_ompla = df_ompla[(df_ompla['mutation']!='A181A') & (df_ompla['mutation']!='A181D') & (df_ompla['mutation']!='A181E') & (df_ompla['mutation']!='A181P')]
@@ -620,7 +620,7 @@ def calculate_positivevar_maxr2(A1,A2,A3,B1,B2):
         r_sq = calculate_regression_coeff(A,B,x0)
         return(1.0 - r_sq)
     
-    result = optimize.minimize(fun=rsq_func, bounds=b1,x0=guess)
+    result = optimize.minimize(fun=rsq_func, bounds=b1,x0=guess, method='L-BFGS-B')
     print("starting guess is:", guess)
     print("bound is:", b1)
     print("rsq is :{}".format(1.0 - rsq_func(guess)))

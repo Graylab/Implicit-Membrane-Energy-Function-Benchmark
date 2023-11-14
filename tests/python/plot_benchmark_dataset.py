@@ -3,7 +3,7 @@
 
 This module plots for some of the tests.  
 This is the last
-step after generating all dataset. There were plots in R, shifting from there. 
+step after generating all dataset.  
 
 Authors: 
 	Rituparna Samanta <rsamant2@jhu.edu>
@@ -37,7 +37,7 @@ all_tests = [ "sc-distribution", "ddG-of-insertion", "ddG-of-mutation", "ddG-of-
 def main( args ): 
         import plotly.graph_objects as go
         # Read options from the command line
-        parser = OptionParser(usage="usage %prog --energy_fxn franklin2019 --which_tests all --restore_talaris false" )
+        parser = OptionParser(usage="usage %prog --energy_fxn franklin2023 --which_tests all --restore_talaris false" )
         parser.set_description(main.__doc__)
 
         parser.add_option( '--energy_fxn', '-e', action="store", help="Name of energy function weights file", )

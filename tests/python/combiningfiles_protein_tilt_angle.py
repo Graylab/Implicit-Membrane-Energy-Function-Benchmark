@@ -327,9 +327,9 @@ def main(args):
                 #1.629	    -1.561	    0.136
                 #1.484	    0.571	    -0.462
 
-                wt_fa_water_to_bilayer = [0.863,1.0,1.0]#, 1.484] 
-                wt_fa_imm_elec = [0.001,0.01,1.0]#, 0.571]
-                wt_f_elec_bilayer = [0.152,0.128,0.172]#, -0.462]
+                wt_fa_water_to_bilayer = [1.0]#, 1.484] 
+                wt_fa_imm_elec = [0.01]#, 0.571]
+                wt_f_elec_bilayer = [0.128]#, -0.462]
 
                 # wt_fa_water_to_bilayer = ["0.863"]  # ,"0.90","1.1","1.3","1.5"]
                 # wt_fa_imm_elec = ["0.001"]  # ,"0.02","0.05","0.07","0.10"]

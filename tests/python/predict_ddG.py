@@ -321,7 +321,7 @@ def run_ddG_of_mutation_calc( config, energy_fxn, testname, pdb, spanfile, mutat
         os.system( "mkdir " + outdir )
 
     if(energy_fxn =="franklin2021"):
-        outdir = outdir + "/ddG-of-mutation/test8_afternheavyatomcorrection_changedddG/"
+        outdir = outdir + "/ddG-of-mutation/"
         outdir = outdir + 'fa_wb_'+str(fa_water_bilayer_wts)+'_felecbilayer_'+str(f_elec_lipidlayer_wts)+'_fimm_'+str(fa_imm_elec_wts)
         print(outdir)
     else:
@@ -338,10 +338,14 @@ def run_ddG_of_mutation_calc( config, energy_fxn, testname, pdb, spanfile, mutat
     os.chdir( targetdir )
 
     # Setup output file
-    outfile = targetdir + "/ddG_" + energy_fxn + ".dat"
-    f = open( outfile, 'a' )
-    f.write( "Nat Pos Mut experimental_ddG predicted_ddG class depth\n" )
+    outfile = targetdir + "/ddG_" + energy_fxn + "_gp.dat"
     
+    if(~os.path.exists(outfile)):
+        f = open( outfile, 'a' )
+        f.write( "Nat Pos Mut experimental_ddG predicted_ddG class depth\n" )
+    else:
+        f = open( outfile, 'a' )
+        
     pose = pose_from_pdb( pdb )
     print_score_labels_to_file( pose, sfxn, targetdir+"/breakdown.sc" )
     print_score_labels_to_file( pose, sfxn, targetdir+"/breakdown_native.sc" )
@@ -411,7 +415,7 @@ def compute_ddG( pose, sfxn, resnum, aa, repack_radius, targetdir, testname ):
     if(testname == "C3_OmpLA_aro_ddGs"):
         mutated_pose = mutate_residue_withgreenpacker( pose, resnum, aa, repack_radius, sfxn )
     else:
-        mutated_pose = mutate_residue( pose, resnum, aa, repack_radius, sfxn )
+        mutated_pose = mutate_residue_withgreenpacker( pose, resnum, aa, repack_radius, sfxn )
     
     mutant_score = sfxn( mutated_pose )
     

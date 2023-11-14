@@ -1,8 +1,9 @@
 # Benchmarks for Membrane Protein Energy Functions
-
+##### This is under construction ###################
 This is a set of scientific benchmark tests for evaluating membrane protein modeling energy functions. The test probe an energy function's ability to capture membrane protein orientation, stability, sequence, and structure. The methods are described in detail in the citation below. 
 
- - Alford RF & Gray JJ (2020) "Diverse scientific benchmarks reveal optimization imperatives for implicit membrane energy functions" _In Preparation_
+ - Alford RF, Samanta R & Gray JJ; "Diverse scientific benchmarks for implicit membrane energy functions", JCTC, 2021
+ - Samanta R & Gray JJ; "Implicit model to capture electrostatic features of membrane environment", bioRxiv, 2023
 
 ## Manifest
 
@@ -16,7 +17,7 @@ This is a set of scientific benchmark tests for evaluating membrane protein mode
 
 #### System software
 
-The test framework requires Python version 3.6+ and R version 3.6+. In addition, the data generation stage takes advantange of high-performance computing resources. the default setup is configured for a conda cluster. We also support SLURM clusters. For other setups, please email the author for assistance. 
+The test framework requires Python version 3.7+, PyRosetta version 3.7+ . In addition, the data generation stage takes advantange of high-performance computing resources. the default setup is configured for a slurm cluster. We also support conda clusters. For other setups, please email the author for assistance. 
 
 #### Molecular modeling software
 
@@ -30,22 +31,11 @@ To get Rosetta, obtain a license and download the package at <https://www.rosett
 
 Here, "X" is the number of processors to use during compilation. For compilation on a laptop, the recommended number of processors is 1. If you are working on a larger workstation or high performance computing cluster, we recommend scaling up to 8-24 processors. More information can be found in the [Rosetta Build Documentation](https://www.rosettacommons.org/docs/wiki/build_documentation/Build-Documentation#setting-up-rosetta-3_basic-setup). 
 
-To get PyRosetta, install miniconda first. On OSX or Linux, this is: 
+To get PyRosetta, follow instructions at: 
 
 ```
-wget https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
-bash Miniconda2-latest-MacOSX-x86_64.sh -b -p $HOME/miniconda
-export PATH="$HOME/miniconda/bin:${PATH}""
+https://www.pyrosetta.org/downloads
 ```
-
-You can then use conda to install PyRosetta, where USERNAME and PASSWORD are your Rosetta license credentials. 
-
-```
-conda config --add channels "https://USERNAME:PASSWORD@conda.graylab.jhu.edu"
-conda install pyrosetta
-```
-
-We also use the KinkFinder package to compute helix kink angles. The KinkFinder package can be downloaded from [Charlotte Deane's lab website](http://opig.stats.ox.ac.uk/resources).
 
 ## Setup
 
@@ -67,17 +57,19 @@ The implicit membrane energy function benchmarks involves three steps: (1) data 
 
 The first step performs all initial PyRosetta and Rosetta modeling calculations via a computing cluster. The generation script takes about 30min to run. Afterward, job completion requires roughly 1K CPU hours for all 12 tests. To run the generation step, use the command line below. 
 
-	./generate_test_data.py --energy_fxn franklin2019 --which_tests all
+	To test franklin2019: './generate_test_data.py --energy_fxn franklin2019 --which_tests all'
+	To test franklin2023: './generate_test_data.py --energy_fxn franklin2023 --which_tests all'
+
 
 The `--energy_fxn` flag sets the energy function to test, referred to by the name of the weights file in the Rosetta database (must be present in both Rosetta & PyRosetta). The `--which_tests` flag indicates which tests to be run. This can be `all` or a comma-separated list of the tests as given below. 
 
 | Test                        | #  | Description 													   |
 |-----------------------------|----|-------------------------------------------------------------------|
 | tm-peptide-tilt-angle       | 1  | Tilt angle of single-span transmembrane peptides           	   |
-| adsorbed-peptide-tilt-angle | 2  | Rotation angle of surface-adsorbed peptides    				   |
+| adsorbed-peptide-tilt-angle | 2  | Tilt angle of surface-adsorbed peptides    				   |
 | protein-tilt-angle          | 3  | Tilt angle of multi-pass membrane proteins 					   |
 | hydrophobic-length          | 4  | Hydrophobic thickness of multi-pass membrane proteins             |
-| ddG-of-insertion            | 5  | Energetic cosf of transfering a peptide from water to bilayer     |
+| ddG-of-insertion            | 5  | Energetic cost of transfering a peptide from water to bilayer     |
 | ddG-of-pH-insertion         | 6  | Energetic cost of pH-dependent water-to-biolayer peptide transfer |
 | ddG-of-mutation             | 7  | Energetic cost of single-point mutations in the membrane          |
 | sequence-recovery           | 8  | Recovery of sequence features after full fixed-backbone redesign  |
@@ -86,13 +78,19 @@ The `--energy_fxn` flag sets the energy function to test, referred to by the nam
 | helix-kink                  | 11 | Helix kink angle prediction            						   |
 | protein-protein-docking     | 12 | Membrane protein-protein docking           					   |
 
-The outputs are then organized in a `data/` directory created by the script. The first subdirectory is the name of the energy function in use (e.g., franklin2019). Then, this folder contains 12 subdirectories for the data output from each test. 
+The outputs are then organized in a `data/` directory created by the script. The first subdirectory is the name of the energy function in use (e.g., franklin2019/franklin2023). Then, this folder contains 12 subdirectories for the data output from each test. 
+
+#### For test 1-3 #######
+We divide the run into 6 small executions which calculates the enrgy landscape over a small distance. However we then run one more step to recompile the energy landscape into a single file with the following code.
+Test1: ./combiningfiles_peptide_tilt_angle.py --energy_fxn franklin2023 --which_tests tm-peptide-tilt-angle
+Test2: ./combiningfiles_peptide_tilt_angle.py --energy_fxn franklin2023 --which_tests adsorbed-peptide-tilt-angle
+Test3: ./combiningfiles_protein_tilt_angle.py --energy_fxn franklin2023 --which_tests adsorbed-peptide-tilt-angle
 
 #### Step 2: Post-Process benchmark data
 
 The sequence recovery and structure prediction benchmark tests require an imtermediate post-processing step before final data analysis. To run the post-processing step, run the command line below. The flags are described in step #1. 
 
-	./process_test_data.py --energy_fxn franklin2019 --which_tests all
+	./process_test_data.py --energy_fxn franklin2023 --which_tests all
 
 #### Step 3: Analyze benchmark data 
 
@@ -100,3 +98,9 @@ The final step is to visualize and analyze the results of each benchmark tests. 
 
 	Rscript analyze_f19_tests.R 
 
+If one wants to avoid using R package you can also keep using the python package. 
+This code is particularly written for tests 1,2,5,7 and 9 (Results for Franklin2023 paper). 
+	'./plot_benchmark_dataset --energy_fxn franklin2023 --which_tests ddG-of-mutation'
+
+#### Determining the weights of score function #####
+python3 calculate_franklin2023_weights.py

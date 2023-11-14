@@ -4,7 +4,7 @@
 #@description:  Methods for submitting Rosetta jobs to SLURM and CONDOR clusters                                             
 #@args:			jobname, executable, arguments, queue_no, high_mem                                                
 #@author: 		Rebecca F. Alford                   
-#modiefied by Rituparna Samanta (rituparna@utexas.edu)
+#modified by Rituparna Samanta (rituparna@utexas.edu)
 #@email: 		rfalford12@gmail.com                                          
 ###################################################################
 

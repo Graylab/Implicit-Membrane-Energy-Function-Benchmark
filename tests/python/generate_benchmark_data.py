@@ -108,26 +108,26 @@ def main( args ):
         if ( "tm-peptide-tilt-angle" in test_names ): 
                 print("in loop of test#1")
                 if(Options.energy_fxn == "franklin2021"):
-                        # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/A1_native_tm_ahelices", "tests/xml/make_depth_vs_tilt_energy_landscape.xml" )
-                        # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/A3_designed_tm_ahelices", "tests/xml/make_depth_vs_tilt_energy_landscape.xml" )
-                        # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/polyalanines", "tests/xml/make_depth_vs_tilt_energy_landscape.xml" )
+                        make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/A1_native_tm_ahelices", "tests/xml/make_depth_vs_tilt_energy_landscape.xml" )
+                        make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/A3_designed_tm_ahelices", "tests/xml/make_depth_vs_tilt_energy_landscape.xml" )
+                        make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/polyalanines", "tests/xml/make_depth_vs_tilt_energy_landscape.xml" )
                         make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/poly_WALP", "tests/xml/make_depth_vs_tilt_energy_landscape.xml" )
                         # for iter in range( 1,29 ):
                         #         make_peptide_energy_landscape_differentwts_titration.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/pHLIP-structure", "tests/xml/make_depth_vs_tilt_energy_landscape_pH.xml", True, (iter)*0.50 )
                         # print("if condition")
                 else:
                         # print("else")
-                        # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/A1_native_tm_ahelices", "tests/xml/make_depth_vs_tilt_energy_landscape_f19.xml" )
-                        # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/A3_designed_tm_ahelices", "tests/xml/make_depth_vs_tilt_energy_landscape_f19.xml" )
-                        # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/polyalanines", "tests/xml/make_depth_vs_tilt_energy_landscape_f19.xml" )
+                        make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/A1_native_tm_ahelices", "tests/xml/make_depth_vs_tilt_energy_landscape_f19.xml" )
+                        make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/A3_designed_tm_ahelices", "tests/xml/make_depth_vs_tilt_energy_landscape_f19.xml" )
+                        make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/polyalanines", "tests/xml/make_depth_vs_tilt_energy_landscape_f19.xml" )
                         make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "tm-peptide-tilt-angle", "tilt_angle/poly_WALP", "tests/xml/make_depth_vs_tilt_energy_landscape_f19.xml" )       
         # Test #2: Rotation angles for surface adsorbed peptides
         if ( "adsorbed-peptide-tilt-angle" in test_names ): 
                 
                 if(Options.energy_fxn == "franklin2021"):
                         # make_peptide_energy_landscape.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "adsorbed-peptide-tilt-angle", "tilt_angle/A2_native_surface_ahelices", "tests/xml/make_depth_vs_helix_rot_energy_landscape_pH.xml", True, 4 )
-                        # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "adsorbed-peptide-tilt-angle", "tilt_angle/A2_native_surface_ahelices", "tests/xml/make_depth_vs_helix_rot_energy_landscape.xml" )
-                        # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "adsorbed-peptide-tilt-angle", "tilt_angle/A4_designed_surface_ahelices", "tests/xml/make_depth_vs_helix_rot_energy_landscape.xml" )
+                        make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "adsorbed-peptide-tilt-angle", "tilt_angle/A2_native_surface_ahelices", "tests/xml/make_depth_vs_helix_rot_energy_landscape.xml" )
+                        make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "adsorbed-peptide-tilt-angle", "tilt_angle/A4_designed_surface_ahelices", "tests/xml/make_depth_vs_helix_rot_energy_landscape.xml" )
                         make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "adsorbed-peptide-tilt-angle", "tilt_angle/unchargedpolylys", "tests/xml/make_depth_vs_helix_rot_energy_landscape.xml" )
                         # make_peptide_energy_landscape_differentwts.run_peptide_energy_landscape_calc( Options.energy_fxn, config, "adsorbed-peptide-tilt-angle", "tilt_angle/A5_amphipathic_peptides", "tests/xml/make_depth_vs_helix_rot_energy_landscape.xml" )
                         # for iter in range( 1,29 ):
@@ -192,10 +192,12 @@ def main( args ):
                 #os.system("source ~/scratch16-jgray21/rsamant2/venv_py3.6/bin/activate")
                 # if(os.environ['VIRTUAL_ENV']=='/scratch16/jgray21/rsamant2/venv_py3.6'):
                 # if(os.environ['VIRTUAL_ENV']=='/home/rsamant2/Softwares/py3.9_pyrosetta_gitcommit_7a030b9/venv_py3.9_pyR7a030b9'):
+                #for franklin2021, start_venv_py3.9_pyR_gitcommit_be23d74is needed. 
+                #for franklin2019, the environment should be different. for the dG_ooc changes. 
                 if(os.environ['VIRTUAL_ENV']=='/home/rsamant2/Softwares/start_venv_py3.9_pyR_gitcommit_be23d74'):
                         predict_ddG.run_ddG_of_mutation_calc( config, Options.energy_fxn, "C1_OmpLA_canonical_ddGs", "1qd6.pdb", "1qd6.span", "OmpLA_Moon_Fleming_set.dat" )
                         predict_ddG.run_ddG_of_mutation_calc( config, Options.energy_fxn, "C2_PagP_canonical_ddGs", "3gp6_A.pdb", "3gp6_A.span", "PagP_Marx_Fleming_set.dat" )
-                        predict_ddG.run_ddG_of_mutation_calc( config, Options.energy_fxn, "C3_OmpLA_aro_ddGs", "1qd6.pdb", "1qd6.span", "OmpLA_aro_McDonald_Fleming_set.dat")#"OmpLA_aro_McDonald_Fleming_set.dat" )		
+                        # predict_ddG.run_ddG_of_mutation_calc( config, Options.energy_fxn, "C3_OmpLA_aro_ddGs", "1qd6.pdb", "1qd6.span", "OmpLA_aro_McDonald_Fleming_set.dat")#"OmpLA_aro_McDonald_Fleming_set.dat" )		
                 else:
                         print("set the right virtual environment." )
                         sys.exit()
