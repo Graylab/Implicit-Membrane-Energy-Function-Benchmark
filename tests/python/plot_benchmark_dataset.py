@@ -174,7 +174,7 @@ def main( args ):
                 elif("ddG-of-mutation" in test_names):
                         #test 1a: A1+A3
                         datadir = "/home/rsamant2/scratch16-jgray21/rsamant2/Implicit-Membrane-Energy-Function-Benchmark-Electrostatics/Implicit-Membrane-Energy-Function-Benchmark-master/" + "data/"+ \
-                                Options.energy_fxn + "/" + name + "/test8_afternheavyatomcorrection_changedddG/"
+                                Options.energy_fxn + "/" + name + "/"#test8_afternheavyatomcorrection_changedddG/"
                         datadir = datadir + "fa_wb_" + str(wt_fa_water_to_bilayer[0]) + "_felecbilayer_" + str(
                                 wt_f_elec_bilayer[0]) + "_fimm_" + str(wt_fa_imm_elec[0])
                                 
@@ -183,7 +183,8 @@ def main( args ):
                                 sys.exit("No such test data available; test needs to finish before combining files")
                         os.chdir(datadir)
                         datafile = 'C1_OmpLA_canonical_ddGs/ddG_franklin2021_allruns_grouped.dat'
-                        comparefile = 'ompla_franklin2019_allruns_grouped.dat'
+                        # comparefile = 'ompla_franklin2019_allruns_grouped.dat'
+                        comparefile = 'ompla_franklin2019.dat'
                         #to group the data
                         #remove the headers
                         #df_ddgmutation_ompla=pd.read_csv('ddG_franklin2021.dat',sep=" ")
@@ -196,17 +197,18 @@ def main( args ):
                         print(df_compare)
                         df_final = pd.merge(df_data,df_compare, on=['Nat','Pos','Mut','experimental_ddG','class','depth'])
                         print(df_final)
-                        plotly_scatter_colorbyclass(df_final, "ompla_dd_werror.png", datadir,err=True)
+                        plotly_scatter_colorbyclass(df_final, "ompla_dd_jan17.png", datadir,err=False)
 
                         datafile = 'C2_PagP_canonical_ddGs/ddG_franklin2021_allruns_grouped.dat'
-                        comparefile = 'pagp_franklin2019_allruns_grouped.dat'
+                        # comparefile = 'pagp_franklin2019_allruns_grouped.dat'
+                        comparefile = 'pagp_franklin2019.dat'
                         df_data = pd.read_csv(datafile, delimiter=' ')
                         print(df_data)
                         df_compare = pd.read_csv(comparefile,delimiter=' ')
                         print(df_compare)
                         df_final = pd.merge(df_data,df_compare, on=['Nat','Pos','Mut','experimental_ddG','class','depth'])
                         print(df_final)
-                        plotly_scatter_colorbyclass(df_final, "pagp_ddG_werror.png", datadir,err=True)
+                        plotly_scatter_colorbyclass(df_final, "pagp_ddG_jan17.png", datadir,err=False)
             
                 elif("ddG-of-insertion" in test_names):
                         datadir = '/home/rsamant2/scratch16-jgray21/rsamant2/' + "data/"+ \
@@ -239,7 +241,7 @@ def main( args ):
                         
                         df_final=pd.concat([df_f19,df_f21])
                         print(df_final)        
-                        plotly_scatter_withbestfit(df_final, "ddG_of_insertion.png", datadir)
+                        plotly_scatter_withbestfit(df_final, "ddG_of_insertion_jan17.png", datadir)
                         
                 elif("protein-tilt-angle" in test_names):
                         datadir = '/home/rsamant2/scratch16-jgray21/rsamant2/' + "data/"+ \
@@ -600,7 +602,7 @@ def plotly_scatter_colorbyclass(df_final, filename, datadir,err=False):
        
         print(list(df_final['Mut']))
         list_res=df_final['Mut'].unique()
-        list_filters=list([x for x in list_res if x not in ['P','A','D','E']])
+        list_filters=list([x for x in list_res if x not in ['P','D','E']])
         df_final_temp=df_final[df_final['Mut'].isin(list_filters)]
         df_final=df_final_temp
 
@@ -609,8 +611,8 @@ def plotly_scatter_colorbyclass(df_final, filename, datadir,err=False):
                 max_lim = float(max(max(df_final['mean_predicted_ddG'])+1,max(df_final['mean_ddG_f19'])+1,max(df_final['experimental_ddG'])))
                 min_lim = float(min(min(df_final['mean_predicted_ddG'])+1,min(df_final['mean_ddG_f19'])+1,min(df_final['experimental_ddG'])))
         else:
-                max_lim = float(max(max(df_final['predicted_ddG']),max(df_final['ddG_f19']),max(df_final['experimental_ddG'])))
-                min_lim = float(min(min(df_final['predicted_ddG']),min(df_final['ddG_f19']),min(df_final['experimental_ddG'])))
+                max_lim = float(max(max(df_final['mean_predicted_ddG']),max(df_final['ddG_f19']),max(df_final['experimental_ddG'])))
+                min_lim = float(min(min(df_final['mean_predicted_ddG']),min(df_final['ddG_f19']),min(df_final['experimental_ddG'])))
         print(max_lim)
         print(min_lim)
         x=np.linspace(min_lim, max_lim, num=5)
@@ -639,7 +641,7 @@ def plotly_scatter_colorbyclass(df_final, filename, datadir,err=False):
                         textposition='top center',textfont=dict(family="Helvetica",size=15,color="rgb(2, 8, 115)"),
                         name='F19'))
         else:
-                fig.add_trace(go.Scatter(x=df_final['experimental_ddG'], y=df_final['predicted_ddG'],text=list(df_final['Mut']),
+                fig.add_trace(go.Scatter(x=df_final['experimental_ddG'], y=df_final['mean_predicted_ddG'],text=list(df_final['Mut']),
                         mode='markers+text',marker_symbol='circle',marker_color="rgb(240,96,96)",marker_line_color="rgb(191,191,191)",marker_line_width=1.0,marker_size=10, 
                         textposition='bottom center',textfont=dict(family="Helvetica",size=15,color="rgb(130, 3, 51)"),
                         name='F23'))
@@ -676,6 +678,8 @@ def plotly_scatter_colorbyclass(df_final, filename, datadir,err=False):
         
         fig.update_xaxes(showgrid=True, gridwidth=0.75, gridcolor='Gray')
         fig.update_yaxes(showgrid=True, gridwidth=0.75, gridcolor='Gray')
+        fig.update_xaxes(zeroline=False)
+        fig.update_yaxes(zeroline=False)
         # fig.update_yaxes(tickmode="auto", nticks=7)
         # fig.update_traces(marker=dict(size=20,line=dict(width=0.4,color='Black')))
         fig.update_layout(showlegend=True,legend=dict(
@@ -731,6 +735,8 @@ def plotly_scatter_withbestfit(df_final, filename, datadir, labels=False):
         
         fig.update_xaxes(showgrid=True, gridwidth=0.75, gridcolor='Gray')
         fig.update_yaxes(showgrid=True, gridwidth=0.75, gridcolor='Gray')
+        fig.update_xaxes(zeroline=False)
+        fig.update_yaxes(zeroline=False)
         # fig.update_yaxes(tickmode="auto", nticks=7)
         
         fig.update_traces(marker=dict(size=10,line=dict(width=1.0,color='Black')))

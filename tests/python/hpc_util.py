@@ -41,7 +41,7 @@ def submit_condor_job( path, jobname, executable, arguments, queue_no=1, high_me
         f.write( "Queue " + str(queue_no) + "\n" )
 
     # Run the condor file
-    os.system( "condor_submit " + filename )
+    # os.system( "condor_submit " + filename )
 
 def submit_stampede_job( path, jobname, jobfile, num_nodes=1 ): 
   
@@ -161,6 +161,7 @@ def submit_serial_rockfish_job( path, jobname, jobfile, num_nodes=1, num_tasks=1
         f.write( "#SBATCH --partition=defq\n" )
         f.write( "#SBATCH --account=jgray21\n" )
         f.write( "#SBATCH --nodes=" + str(num_nodes) + "\n" )
+        
         if(high_mem):
             f.write( "#SBATCH --ntasks-per-node=" + str(num_tasks) + "\n" )
         f.write( "#SBATCH --time=2:0:0\n" )
@@ -193,7 +194,7 @@ def submit_serial_rockfish_job( path, jobname, jobfile, num_nodes=1, num_tasks=1
 
     # Run the slurm job file
     sbatch_command = "sbatch " + filename
-    os.system( sbatch_command )
+    # os.system( sbatch_command )
 
 def submit_serial_rockfish_job_py36( path, jobname, jobfile, num_nodes=1 ):
 

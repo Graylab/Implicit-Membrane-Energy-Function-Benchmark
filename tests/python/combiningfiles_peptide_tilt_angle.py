@@ -52,12 +52,14 @@ def combiningallfiles(peptide_list, energy_fxn, pH=[], tilt_axis=False, testname
             start_index = ['-50.000000', '-40.000000','-30.000000', '-20.000000', '-10.000000', '0.000000', '10.000000', '20.000000','30.000000', '40.000000']#, '50.000000']
             end_index = ['-40.000000', '-30.000000','-20.000000', '-10.000000', '1.000000', '10.000000', '20.000000', '30.000000','40.000000', '50.000000']#, '60.000000']  # [-3, -2, -1, 0, 0, 0, 1, 2]
         else:
-            start_index = ['-60.000000','-50.000000', '-40.000000','-30.000000', '-20.000000', '-10.000000']#, '10.000000', '20.000000','30.000000', '40.000000', '50.000000']
-            end_index = ['-50.000000','-40.000000', '-30.000000','-20.000000', '-10.000000','1.000000']
+            # start_index = ['-60.000000','-50.000000', '-40.000000','-30.000000', '-20.000000', '-10.000000']#, '10.000000', '20.000000','30.000000', '40.000000', '50.000000']
+            # end_index = ['-50.000000','-40.000000', '-30.000000','-20.000000', '-10.000000','1.000000']
+            start_index = ['-45.000000']#,'-50.000000', '-40.000000','-30.000000', '-20.000000', '-10.000000']#, '10.000000', '20.000000','30.000000', '40.000000', '50.000000']
+            end_index = ['1.000000']#,'-40.000000', '-30.000000','-20.000000', '-10.000000','1.000000']
         
-        substring = "_after_relax"
+        # substring = "_after_relax"
         # substring = "_0001"
-        # substring=""
+        substring=""
         
         peptide_name2 = peptide_list[element_num]
         peptide_name = peptide_name2.split('_')[0]
@@ -146,9 +148,9 @@ def combiningallfiles(peptide_list, energy_fxn, pH=[], tilt_axis=False, testname
 #                    print(arr)
                     minpos = np.argmin(arr)
                     if(energy_fxn=='franklin2021'):
-                        mindata.append(secondarr.iloc[minpos, 0:28])
+                        mindata.append(secondarr.iloc[minpos, :])
                     else:
-                        mindata.append(secondarr.iloc[minpos, 0:25])
+                        mindata.append(secondarr.iloc[minpos, :])
         mindatadf = pd.DataFrame(mindata)
 #        print(mindatadf)
         mindatadf.to_csv(labelout1, sep=" ", index=False)
@@ -232,12 +234,12 @@ def creating_1d_min_files(peptide_list, pH=[]):
             # print(arr)
             minpos = np.argmin(arr)
             # print(minpos)
-            mindata.append(newarr.iloc[minpos, 0:28])
+            mindata.append(newarr.iloc[minpos, :])
             
             newarr_prev = df_prev[df_prev['zcoord'] == X[i]]
             arr_prev = np.array(newarr_prev['total_score'])
             minpos_prev = np.argmin(arr_prev)
-            mindata_prev.append(newarr_prev.iloc[minpos_prev, 0:28])
+            mindata_prev.append(newarr_prev.iloc[minpos_prev, :])
             
 
         mindatadf = pd.DataFrame(mindata)
@@ -419,8 +421,8 @@ def main(args):
                 # wt_f_elec_bilayer = [0.128,0.152]#, -0.462]
                 
                 wt_fa_water_to_bilayer = [1.0]#, 1.484] 
-                wt_fa_imm_elec = [0.01]#, 0.571]
-                wt_f_elec_bilayer = [0.128]
+                # wt_fa_imm_elec = [0.01]#, 0.571]
+                # wt_f_elec_bilayer = [0.128]
                 # wt_fa_water_to_bilayer = [0.863]#, 1.484] 
                 # wt_fa_imm_elec = [0.001]#, 0.571]
                 # wt_f_elec_bilayer = [0.152]#, -0.462]  
@@ -433,18 +435,21 @@ def main(args):
                     
 
                     if(Options.energy_fxn!="franklin2019"):
+                        # datadir = '/home/rsamant2/scratch16-jgray21/rsamant2/' + "data/"+ \
+                        #         Options.energy_fxn + "/" + name + "/weights_from_test8_heavyatomcorrection_notilt_changedddG/"
                         datadir = '/home/rsamant2/scratch16-jgray21/rsamant2/' + "data/"+ \
-                                Options.energy_fxn + "/" + name + "/weights_from_test8_heavyatomcorrection_notilt_changedddG_WALP_dope/"
+                                "franklin2021"+ "/" + name + "/weights_from_test8_heavyatomcorrection_notilt_changedddG/"
 
                     else:
                         datadir = '/home/rsamant2/scratch16-jgray21/rsamant2/' + "data/"+ \
-                                Options.energy_fxn + "/" + name + "/weights_from_test8_heavyatomcorrection_notilt_changedddG_WALP_dope/"
-
+                                Options.energy_fxn + "/" + name + "/weights_from_test8_heavyatomcorrection_notilt_changedddG/"
+                        
                     # additional_folder='structure_fromA2ahelices_folder/'
-                    additional_folder=''
+                    additional_folder='test_f23_final/'
+                    datadir = datadir + additional_folder
                     
-                    datadir = datadir + additional_folder + "fa_wb_" + str(wt_fa_water_to_bilayer[i]) + "_felecbilayer_" + str(
-                       wt_f_elec_bilayer[i]) + "_fimm_" + str(wt_fa_imm_elec[i])
+                    # datadir = datadir + additional_folder + "fa_wb_" + str(wt_fa_water_to_bilayer[i]) + "_felecbilayer_" + str(
+                    #    wt_f_elec_bilayer[i]) + "_fimm_" + str(wt_fa_imm_elec[i])
                     # else:
                     # datadir = datadir = '/home/rsamant2/scratch16-jgray21/rsamant2/' + "data/"+ \
                     #          Options.energy_fxn + "/" + name + "/runs_for_paper1/"
@@ -464,8 +469,8 @@ def main(args):
                         # peptide_list = ['AA20','AA25','AA28','AA30','AA35','AA40']#, 'WALP19','WALP25','WALP31','WALP35','WALP39']
                         # peptide_list = ['WALP25','WALP35']#['WALP19','WALP25','WALP31','WALP35','WALP39']
                     elif(name == "adsorbed-peptide-tilt-angle"):
-                        peptide_list=['polylys_POPC','polylys_POPG']#,'polylys_DLPC']
-                        # peptide_list = ['1f0d']#,'LK_peptide_n6']
+                        # peptide_list=['polylys_POPC','polylys_POPG']#,'polylys_DLPC']
+                        peptide_list = ['1f0d','2mag']#,'1hu6','2mag']#,'LK_peptide_n6']
                         # peptide_list = ['LK_peptide_n6','2mag', '2mlt','1f0d','1f0d', '1f0g', '1hu5', '1hu6', '1hu7']#,'2khk','2mvm','5xng']
                     elif(name == "protein-tilt-angle"):
                         peptide_list = ['1fep', '1gzm', '1m0l', '1nqe', '1okc', '1p4t', '1qfg', '1qj8', '1qjp', '1r3j', '1yce', '2cfp', '2j8c', '2qom',

@@ -83,7 +83,7 @@ def main( args ):
 
         # Set restore variable based on energy function type
         restore = True
-        if ( Options.energy_fxn == "franklin2019" or Options.energy_fxn == "ref2015" or Options.energy_fxn == "franklin2021" ): 
+        if ( Options.energy_fxn == "franklin2019" or Options.energy_fxn == "ref2015" or Options.energy_fxn == "franklin2021" or Options.energy_fxn == "franklin2023"): 
                 restore = False 
 
         # Read path configuration file
@@ -211,8 +211,8 @@ def main( args ):
         # Test #10: Native structure discrimination
         if ( "decoy-discrimination" in test_names ): 
 
-                make_refined_decoys_pH.run_refine_decoys_calc( Options.energy_fxn, restore, config, "decoy-discrimination", "highres", "mp_relax_pH.xml" ) 
-                #make_refined_decoys.run_refine_decoys_calc( Options.energy_fxn, restore, config, "decoy-discrimination", "lowres", "mp_relax.xml" )
+                # make_refined_decoys_pH.run_refine_decoys_calc( Options.energy_fxn, restore, config, "decoy-discrimination", "highres", "mp_relax_pH.xml" ) 
+                make_refined_decoys.run_refine_decoys_calc( Options.energy_fxn, restore, config, "decoy-discrimination", "highres", "mp_relax.xml" )
                 #make_refined_decoys_pH.run_refine_decoys_calc( Options.energy_fxn, restore, config, "decoy-discrimination", "lowres", "mp_relax_pH.xml" )
         # Test #11: Membrane helix kinks
         if ( "helix-kinks" in test_names ): 

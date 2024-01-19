@@ -38,14 +38,15 @@ def run_refine_decoys_calc( energy_fxn, restore, config, test_name, resolution, 
 	xml_script =  config.benchmark_path + "tests/xml/" + xml
 
 	# Change directories to a data analysis dir
-	outdir = config.benchmark_path + "data/" + energy_fxn + "/" + test_name + "/highdGforDE/"   
+	# outdir = config.benchmark_path + "data/" + energy_fxn + "/" + test_name + "/highdGforDE/"   
+	outdir = '/home/rsamant2/scratch16-jgray21/rsamant2/' + "data/" 
 	if ( not os.path.isdir( outdir ) ): 
 		os.system( "mkdir " + outdir )
 	os.chdir( outdir )
-	
-	outdir = outdir + resolution + "/" 
+
+	# outdir = outdir + resolution + "/" 
 	if ( not os.path.isdir( outdir ) ):
-                os.system( "mkdir " + outdir )
+				os.system( "mkdir " + outdir )
 	os.chdir( outdir )
 
 	# Iterate through each target
@@ -77,6 +78,8 @@ def run_refine_decoys_calc( energy_fxn, restore, config, test_name, resolution, 
 		for dlist in list_of_lists: 
 
 			i = i + 1
+			if(i>2):
+				break
 
 			# Setup case-specific variables
 			models_list = targets_path + target + "/" + dlist
@@ -93,7 +96,9 @@ def run_refine_decoys_calc( energy_fxn, restore, config, test_name, resolution, 
 
 			# Write jobfile and submit to the HPC
 			jobname = target + "_refine_" + str(i)
-			hpc_util.submit_condor_job( casedir, jobname, executable, arguments, 5 )
+			jobfile = hpc_util.make_jobfile(casedir, jobname, executable, arguments)
+			print(casedir)
+			hpc_util.submit_serial_rockfish_job( casedir, jobname, jobfile )
 
 def run_refine_kined_structures( energy_fxn, restore, config, test_name, xml ): 
 	"""
